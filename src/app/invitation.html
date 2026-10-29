@@ -11,27 +11,20 @@
   </div>
 
   <!-- ==========================================================================
-       TOP STUDIO UTILITY BAR (Guest Preset, Config/Doc & Cover Reopen)
+       REOPEN COVER FLOATING BUTTON
        ========================================================================== -->
-  <aside aria-label="Panel Pratinjau & Pengaturan Tamu" class="fixed top-2.5 left-3 z-50 flex items-center gap-1.5 bg-[#FFFDFB]/90 backdrop-blur-md border border-[#644950]/20 rounded-full px-2.5 py-1 shadow-sm text-[11px] text-[#3A272B]">
-    <span class="hidden sm:inline-flex items-center gap-1 font-medium text-[#61664C] pl-1">
-      <span class="w-1.5 h-1.5 rounded-full bg-[#61664C]"></span>
-      Pratinjau Tamu:
-    </span>
-    <label for="guest-preset-select" class="sr-only">Pilih Pratinjau Tamu Undangan</label>
-    <select id="guest-preset-select" class="bg-transparent font-medium text-[#3A272B] pr-1 py-0.5 rounded focus:outline-none cursor-pointer max-w-[150px] sm:max-w-[210px] truncate" title="Simulasikan tampilan undangan berdasarkan kuota & nama tamu">
-      <option value="0">Keluarga Besar Bpk. Wijaya (Kuota 2)</option>
-      <option value="1">Sahabat — Rania Putri (Kuota 1)</option>
-      <option value="2">Keluarga Dr. Hendra Kusuma (Kuota 4)</option>
-    </select>
-    <span class="text-[#644950]/30" aria-hidden="true">|</span>
-    <button type="button" id="btn-open-moodboard-modal" class="px-2 py-0.5 rounded-full hover:bg-[#E7B8C4]/30 text-[#3A272B] font-medium transition-colors cursor-pointer" title="Lihat Dokumentasi & Desain Moodboard">
-      Panduan
-    </button>
-    <button type="button" id="btn-reopen-cover" class="hidden px-2 py-0.5 rounded-full bg-[#E7B8C4]/35 hover:bg-[#E7B8C4]/60 text-[#3A272B] font-medium transition-colors cursor-pointer" title="Buka kembali sampul pembuka">
-      Sampul
-    </button>
-  </aside>
+  <button
+    type="button"
+    id="btn-reopen-cover"
+    class="hidden fixed top-2.5 left-3 z-50 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFDFB]/90 backdrop-blur-md border border-[#644950]/20 text-[#3A272B] hover:bg-[#FAF6F0] hover:text-[#9A7078] shadow-sm text-xs font-medium transition-all cursor-pointer"
+    title="Tampilkan kembali sampul pembuka"
+    aria-label="Tampilkan kembali sampul pembuka"
+  >
+    <svg class="w-3.5 h-3.5 text-[#D4BA72]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>
+    <span>Buka Sampul</span>
+  </button>
 
   <!-- ==========================================================================
        TOP-RIGHT CONTROLS: AUDIO & REDUCED MOTION TOGGLE
@@ -488,7 +481,7 @@
               <div class="my-4 h-[1px] w-20 bg-[#D4BA72] mx-auto" aria-hidden="true"></div>
               <p class="text-xs sm:text-sm text-[#3A272B]/85 leading-relaxed">
                 Putri dari pasangan terkasih<br />
-                <strong class="font-medium text-[#3A272B]">[Nama Ayah Mempelai Wanita]</strong> &amp; <strong class="font-medium text-[#3A272B]">[Nama Ibu Mempelai Wanita]</strong>
+                <strong class="font-medium text-[#3A272B]">Bpk. Bambang Larasati</strong> &amp; <strong class="font-medium text-[#3A272B]">Ibu Endang Larasati</strong>
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#644950]/15 flex items-center justify-center gap-2 text-xs text-[#61664C]">
@@ -512,7 +505,7 @@
               <div class="my-4 h-[1px] w-20 bg-[#D4BA72] mx-auto" aria-hidden="true"></div>
               <p class="text-xs sm:text-sm text-[#3A272B]/85 leading-relaxed">
                 Putra dari pasangan terkasih<br />
-                <strong class="font-medium text-[#3A272B]">[Nama Ayah Mempelai Pria]</strong> &amp; <strong class="font-medium text-[#3A272B]">[Nama Ibu Mempelai Pria]</strong>
+                <strong class="font-medium text-[#3A272B]">Bpk. Hendrawan Pratama</strong> &amp; <strong class="font-medium text-[#3A272B]">Ibu Rina Pratama</strong>
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#644950]/15 flex items-center justify-center gap-2 text-xs text-[#61664C]">
@@ -1547,74 +1540,7 @@
     </div>
   </div>
 
-  <!-- ==========================================================================
-       SETUP & DOCUMENTATION MODAL
-       ========================================================================== -->
-  <div
-    id="moodboard-config-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="config-modal-title"
-    class="fixed inset-0 z-50 hidden items-center justify-center bg-[#3A272B]/80 backdrop-blur-sm p-4 overflow-y-auto"
-  >
-    <div class="stationery-card max-w-3xl w-full p-6 sm:p-8 text-left max-h-[88vh] overflow-y-auto my-auto shadow-2xl">
-      <div class="flex items-start justify-between gap-4 border-b border-[#644950]/20 pb-3 mb-5">
-        <div>
-          <p class="font-eyebrow text-[10px]">DOKUMENTASI DESAIN &amp; ARSITEKTUR</p>
-          <h3 id="config-modal-title" class="font-display text-xl sm:text-2xl text-[#3A272B] font-normal">
-            Panduan Desain Romantic Editorial &amp; Botanical
-          </h3>
-        </div>
-        <button
-          type="button"
-          id="btn-close-config-modal"
-          aria-label="Tutup panduan"
-          class="min-w-[44px] min-h-[44px] rounded-full hover:bg-[#E7B8C4]/30 flex items-center justify-center text-[#3A272B] cursor-pointer"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
 
-      <div class="space-y-6 text-xs sm:text-sm text-[#3A272B]/90">
-        <!-- Moodboard Reference -->
-        <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-[#FAF6F0] p-4 rounded-xl border border-[#D4BA72]">
-          <div class="sm:col-span-5">
-            <img
-              src="/assets/opt_moodboard_ref.jpg"
-              alt="Moodboard Referensi Soft Romance in Bloom"
-              width="360"
-              height="384"
-              loading="lazy"
-              class="w-full h-auto rounded-lg border border-[#644950]/20"
-            />
-          </div>
-          <div class="sm:col-span-7 space-y-2">
-            <h4 class="font-display text-base font-medium text-[#3A272B]">1. Visual Moodboard &amp; Art Direction</h4>
-            <p class="text-xs leading-relaxed">
-              Menerapkan gaya <em>Romantic Editorial</em> dengan palet botani: Dusty Pink (`#E7B8C4`), Mauve Rose (`#C98AA3`), Sage Green (`#61664C`), Antique Gold (`#D4BA72`), dan Letterpress Ink (`#3A272B`).
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="font-display text-base font-medium text-[#3A272B] mb-1">2. Konfigurasi Konten</h4>
-          <p class="text-xs leading-relaxed">
-            Data pasangan, tanggal, dan rekening dapat disesuaikan pada berkas <code class="bg-[#FAF6F0] px-1.5 py-0.5 rounded border border-[#644950]/20">src/config/weddingConfig.ts</code>.
-          </p>
-        </div>
-      </div>
-
-      <div class="mt-6 pt-4 border-t border-[#644950]/15 text-right">
-        <button
-          type="button"
-          id="btn-close-config-modal-bottom"
-          class="min-h-[44px] px-6 py-2 rounded-full bg-[#3A272B] text-[#FAF6F0] text-xs uppercase tracking-widest cursor-pointer"
-        >
-          Tutup Panduan
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- ==========================================================================
        ACCESSIBLE TOAST NOTIFICATION

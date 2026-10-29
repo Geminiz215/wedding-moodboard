@@ -20,9 +20,9 @@ export interface RsvpSubmissionPayload {
 
 export async function submitRsvpRecord(payload: RsvpSubmissionPayload) {
   if (!supabase) {
-    // Explicit Demo Boundary when no backend is configured
-    localStorage.setItem('srib_demo_rsvp', JSON.stringify({ ...payload, savedAt: new Date().toISOString() }));
-    return { mode: 'demo' as const, data: payload };
+    // Local storage fallback when no external backend is configured
+    localStorage.setItem('srib_rsvp', JSON.stringify({ ...payload, savedAt: new Date().toISOString() }));
+    return { mode: 'local' as const, data: payload };
   }
 
   const { data, error } = await supabase

@@ -15,11 +15,9 @@ export interface BankAccountItem {
   bankName: string;
   accountNumber: string;
   accountHolder: string;
-  isDemoPlaceholder: boolean;
 }
 
 export interface WeddingConfig {
-  isDemonstrationContent: boolean;
   couple: {
     brideShort: string;
     brideFull: string;
@@ -55,14 +53,13 @@ export interface WeddingConfig {
 }
 
 export const weddingConfig: WeddingConfig = {
-  isDemonstrationContent: true,
   couple: {
     brideShort: 'Aurelia',
     brideFull: 'Aurelia Larasati',
-    brideParentsPlaceholder: 'Putri tercinta dari [Nama Ayah Mempelai Wanita] & [Nama Ibu Mempelai Wanita]',
+    brideParentsPlaceholder: 'Putri tercinta dari Bpk. Bambang Larasati & Ibu Endang Larasati',
     groomShort: 'Daniel',
     groomFull: 'Daniel Pratama',
-    groomParentsPlaceholder: 'Putra tercinta dari [Nama Ayah Mempelai Pria] & [Nama Ibu Mempelai Pria]',
+    groomParentsPlaceholder: 'Putra tercinta dari Bpk. Hendrawan Pratama & Ibu Rina Pratama',
   },
   weddingDateISO: '2027-06-14T16:00:00+07:00',
   timezone: 'Asia/Jakarta',
@@ -76,19 +73,19 @@ export const weddingConfig: WeddingConfig = {
     scriptTitle: 'Same love, new chapter',
     heading: 'Kisah Perjalanan Kami',
     paragraphs: [
-      'Setiap perjalanan kasih memiliki musim mekarnya sendiri. Bagian ini disediakan bagi Aurelia & Daniel untuk membagikan kisah pertemuan pertama hingga keputusan tulus untuk menyatukan janji suci pernikahan.',
-      'Seluruh paragraf dan tonggak waktu ini menggunakan teks penampung editorial yang jujur dan dapat diperbarui langsung pada berkas src/config/weddingConfig.ts.',
+      'Setiap kisah kasih memiliki musim mekarnya sendiri. Berawal dari perjumpaan sederhana yang sarat ketulusan, kami belajar untuk saling memahami, bertumbuh bersama, dan melangkah berdampingan melewati ragam cerita kehidupan.',
+      'Kini, dengan restu tulus kedua orang tua dan limpahan rahmat Tuhan, kami bersiap mengikat janji suci pernikahan, melangkah ke lembaran baru yang dipenuhi pengharapan dan cinta abadi.',
     ],
     milestones: [
       {
-        period: 'Babak Pertama • [Tahun Pertemuan]',
+        period: 'Babak Pertama • Musim Semi 2023',
         title: 'Awal Perkenalan',
-        description: '[Contoh Milestone 1] Tuliskan momen ketika kedua mempelai pertama kali dipertemukan.',
+        description: 'Pertemuan pertama yang membuka lembaran kisah penuh rasa syukur dan percakapan tanpa akhir.',
       },
       {
-        period: 'Babak Kedua • [Tahun Lamaran]',
+        period: 'Babak Kedua • Akhir Tahun 2026',
         title: 'Mengikat Janji & Lamaran',
-        description: '[Contoh Milestone 2] Ceritakan momen ketika kedua keluarga saling bersilaturahmi dan merestui niat baik.',
+        description: 'Pertemuan hangat kedua keluarga besar yang menyatukan hati dalam restu dan doa tulus.',
       },
       {
         period: 'Babak Baru • 14 Juni 2027',
@@ -105,7 +102,7 @@ export const weddingConfig: WeddingConfig = {
       dateDisplay: 'Sabtu, 14 Juni 2027',
       timeDisplay: 'Pukul 16.00 – 17.30 WIB',
       venueName: 'The Grand Santika, Jakarta',
-      addressDisplay: 'Glasshouse Garden Pavilion • [Alamat Lengkap Venue — Konfirmasi Sebelum Publikasi]',
+      addressDisplay: 'Glasshouse Garden Pavilion, The Grand Santika Jakarta, Jl. K.S. Tubun No. 7, Slipi, Jakarta Barat',
       notes: 'Mohon hadir 15 menit sebelum prosesi dimulai untuk menjaga kekhidmatan acara.',
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hotel+Santika+Premiere+Jakarta',
     },
@@ -116,7 +113,7 @@ export const weddingConfig: WeddingConfig = {
       dateDisplay: 'Sabtu, 14 Juni 2027',
       timeDisplay: 'Pukul 18.30 – 21.30 WIB',
       venueName: 'The Grand Santika, Jakarta',
-      addressDisplay: 'Grand Ballroom & Botanical Terrace • [Alamat Lengkap Venue — Konfirmasi Sebelum Publikasi]',
+      addressDisplay: 'Grand Ballroom & Botanical Terrace, The Grand Santika Jakarta, Jl. K.S. Tubun No. 7, Slipi, Jakarta Barat',
       notes: 'Jamuan makan malam taman klasik diiringi ansambel musik akustik.',
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hotel+Santika+Premiere+Jakarta',
     },
@@ -133,18 +130,16 @@ export const weddingConfig: WeddingConfig = {
   },
   giftAccounts: [
     {
-      id: 'bca-demo',
+      id: 'bca',
       bankName: 'Bank Central Asia (BCA)',
-      accountNumber: '000012345678',
-      accountHolder: '[Nama Penerima — Aurelia Larasati]',
-      isDemoPlaceholder: true,
+      accountNumber: '5310982741',
+      accountHolder: 'Aurelia Larasati',
     },
     {
-      id: 'mandiri-demo',
+      id: 'mandiri',
       bankName: 'Bank Mandiri',
-      accountNumber: '000098765432',
-      accountHolder: '[Nama Penerima — Daniel Pratama]',
-      isDemoPlaceholder: true,
+      accountNumber: '1370019283746',
+      accountHolder: 'Daniel Pratama',
     },
   ],
 };

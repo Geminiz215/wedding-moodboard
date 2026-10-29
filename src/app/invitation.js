@@ -47,18 +47,18 @@ export function initInvitation() {
     ],
     initialGuestbook: [
       {
-        id: 'demo-1',
+        id: 'gb-1',
         name: 'Keluarga Besar Bpk. Hendrawan',
         relation: 'Kerabat Keluarga',
         message: 'Selamat menempuh hidup baru untuk Aurelia & Daniel. Semoga kasih sayang dan kedamaian senantiasa menyertai rumah tangga kalian.',
-        timestamp: 'Baru saja',
+        timestamp: '18 Mei 2027',
       },
       {
-        id: 'demo-2',
+        id: 'gb-2',
         name: 'Clarissa & Adi',
         relation: 'Sahabat Mempelai',
         message: 'Turut berbahagia atas hari pernikahan Aurelia dan Daniel! Semoga menjadi pasangan yang saling melengkapi hingga akhir waktu.',
-        timestamp: '1 jam lalu',
+        timestamp: '19 Mei 2027',
       },
     ],
   };
@@ -184,17 +184,6 @@ export function initInvitation() {
     }
   } catch (e) {
     applyGuestPreset(weddingConfig.guestPresets[0]);
-  }
-
-  const presetSelect = document.getElementById('guest-preset-select');
-  if (presetSelect) {
-    presetSelect.addEventListener('change', function (e) {
-      const idx = parseInt(e.target.value, 10);
-      if (weddingConfig.guestPresets[idx]) {
-        applyGuestPreset(weddingConfig.guestPresets[idx]);
-        showToast('Pratinjau tamu diubah: ' + weddingConfig.guestPresets[idx].name);
-      }
-    });
   }
 
   /* ------------------------------------------------------------------------
@@ -662,34 +651,6 @@ export function initInvitation() {
     });
   }
 
-  // Config modal
-  const configModal = document.getElementById('moodboard-config-modal');
-  const btnOpenConfig = document.getElementById('btn-open-moodboard-modal');
-  const btnCloseConfig = document.getElementById('btn-close-config-modal');
-  const btnCloseConfigBottom = document.getElementById('btn-close-config-modal-bottom');
-
-  function openConfigModal() {
-    if (!configModal) return;
-    configModal.classList.remove('hidden');
-    configModal.classList.add('flex');
-    if (btnCloseConfig) btnCloseConfig.focus();
-  }
-
-  function closeConfigModal() {
-    if (!configModal || configModal.classList.contains('hidden')) return;
-    configModal.classList.add('hidden');
-    configModal.classList.remove('flex');
-    if (btnOpenConfig) btnOpenConfig.focus();
-  }
-
-  if (btnOpenConfig) btnOpenConfig.addEventListener('click', openConfigModal);
-  if (btnCloseConfig) btnCloseConfig.addEventListener('click', closeConfigModal);
-  if (btnCloseConfigBottom) btnCloseConfigBottom.addEventListener('click', closeConfigModal);
-  if (configModal) {
-    configModal.addEventListener('click', function (e) {
-      if (e.target === configModal) closeConfigModal();
-    });
-  }
 
   // Global Keyboard Shortcuts
   document.addEventListener('keydown', function (e) {
@@ -785,7 +746,7 @@ export function initInvitation() {
           note: note,
           updatedAt: new Date().toISOString(),
         };
-        safeSetStorage('srib_demo_rsvp', payload);
+        safeSetStorage('srib_rsvp', payload);
 
         if (rsvpSubmitBtn) rsvpSubmitBtn.disabled = false;
         if (rsvpSubmitLabel) rsvpSubmitLabel.textContent = 'Kirim Konfirmasi RSVP';
@@ -816,7 +777,7 @@ export function initInvitation() {
           btnRsvpWhatsApp.href = `https://wa.me/?text=${waMessage}`;
         }
 
-        showToast('Konfirmasi RSVP berhasil disimpan');
+        showToast('Terima kasih, konfirmasi kehadiran Anda berhasil disimpan.');
       }, 400);
     });
   }
@@ -841,7 +802,7 @@ export function initInvitation() {
   const gbCharCount = document.getElementById('gb-char-count');
   const gbList = document.getElementById('guestbook-list');
 
-  let guestbookMessages = safeGetStorage('srib_demo_guestbook', weddingConfig.initialGuestbook);
+  let guestbookMessages = safeGetStorage('srib_guestbook', weddingConfig.initialGuestbook);
 
   function renderGuestbook() {
     if (!gbList) return;
@@ -929,7 +890,7 @@ export function initInvitation() {
       };
 
       guestbookMessages = [newEntry].concat(guestbookMessages);
-      safeSetStorage('srib_demo_guestbook', guestbookMessages);
+      safeSetStorage('srib_guestbook', guestbookMessages);
       renderGuestbook();
 
       gbForm.reset();
