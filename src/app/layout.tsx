@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'The Wedding of Aurelia & Daniel — Romantic Botanical Editorial Edition',
+  title: 'The Wedding of Zahra & Fachri — Soft Romance in Bloom',
   description:
-    'Undangan Pernikahan Digital Aurelia & Daniel — Sabtu, 14 Juni 2027 di The Grand Santika, Jakarta. Romantic Editorial & Botanical Art Direction.',
+    'Undangan Pernikahan Digital Zahra & Fachri — Sabtu, 14 Juni 2025 di The Grand Santika, Jakarta. Luxury Romantic Editorial & Botanical Stationery Experience.',
   openGraph: {
-    title: 'The Wedding of Aurelia & Daniel — 14 Juni 2027',
+    title: 'The Wedding of Zahra & Fachri — 14 Juni 2025',
     description:
       'Kami mengundang Bapak/Ibu/Saudara/i untuk berbagi kebahagiaan dan doa restu di hari pernikahan kami. The Grand Santika, Jakarta.',
     type: 'website',

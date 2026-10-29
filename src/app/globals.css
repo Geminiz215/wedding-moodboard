@@ -46,8 +46,8 @@
   --dur-micro: 180ms;
   --dur-entrance: 520ms;
   --dur-image: 720ms;
-  --dur-cover: 920ms;
-  --dur-curtain: 1150ms;
+  --dur-cover: 800ms;
+  --dur-curtain: 800ms;
 }
 
 /* ==========================================================================
@@ -210,22 +210,22 @@ body.cover-locked {
 
 #invitation-cover .curtain-pelmet {
   transition:
-    transform 900ms var(--ease-curtain),
-    opacity 750ms var(--ease-curtain);
+    transform 750ms var(--ease-curtain),
+    opacity 650ms var(--ease-curtain);
   will-change: transform, opacity;
 }
 
 #invitation-cover .curtain-light-beam {
   transition:
-    opacity 700ms ease-out,
+    opacity 600ms ease-out,
     transform var(--dur-curtain) var(--ease-curtain);
   will-change: opacity, transform;
 }
 
 #invitation-cover .cover-card-shell {
   transition:
-    transform 980ms var(--ease-curtain) 60ms,
-    opacity 720ms var(--ease-curtain) 180ms;
+    transform 750ms var(--ease-curtain) 40ms,
+    opacity 600ms var(--ease-curtain) 80ms;
   transform-origin: center center;
   will-change: transform, opacity;
 }
@@ -233,8 +233,8 @@ body.cover-locked {
 #invitation-cover .curtain-left img,
 #invitation-cover .curtain-right img {
   transition:
-    transform 950ms var(--ease-curtain),
-    opacity 650ms ease-out 100ms;
+    transform 750ms var(--ease-curtain),
+    opacity 550ms ease-out 60ms;
   will-change: transform, opacity;
 }
 

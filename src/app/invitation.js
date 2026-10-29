@@ -1,4 +1,4 @@
-// Romantic Editorial & Botanical Interactive Logic
+// Romantic Editorial & Botanical Interactive Logic — Zahra & Fachri
 let started = false;
 
 export function initInvitation() {
@@ -10,12 +10,12 @@ export function initInvitation() {
      ------------------------------------------------------------------------ */
   const weddingConfig = {
     couple: {
-      brideShort: 'Aurelia',
-      brideFull: 'Aurelia Larasati',
-      groomShort: 'Daniel',
-      groomFull: 'Daniel Pratama',
+      brideShort: 'Zahra',
+      brideFull: 'Zahra',
+      groomShort: 'Fachri',
+      groomFull: 'Fachri',
     },
-    weddingDateISO: '2027-06-14T16:00:00+07:00',
+    weddingDateISO: '2025-06-14T16:00:00+07:00',
     timezone: 'Asia/Jakarta',
     venueName: 'The Grand Santika, Jakarta',
     guestPresets: [
@@ -26,8 +26,8 @@ export function initInvitation() {
     gallery: [
       {
         src: '/assets/editorial_couple_conservatory.jpg',
-        alt: 'Potret Aurelia dan Daniel berpegangan tangan di bawah tirai hijau sage dan sutra merah muda',
-        caption: 'I. Conservatory Vows — Aurelia & Daniel dalam nuansa klasik taman Eropa',
+        alt: 'Potret Zahra dan Fachri berpegangan tangan di bawah tirai hijau sage dan sutra merah muda',
+        caption: 'I. Conservatory Vows — Zahra & Fachri dalam nuansa klasik taman Eropa',
       },
       {
         src: '/assets/editorial_garden_table.jpg',
@@ -50,15 +50,15 @@ export function initInvitation() {
         id: 'gb-1',
         name: 'Keluarga Besar Bpk. Hendrawan',
         relation: 'Kerabat Keluarga',
-        message: 'Selamat menempuh hidup baru untuk Aurelia & Daniel. Semoga kasih sayang dan kedamaian senantiasa menyertai rumah tangga kalian.',
-        timestamp: '18 Mei 2027',
+        message: 'Selamat menempuh hidup baru untuk Zahra & Fachri. Semoga Allah SWT memberkahi ikatan suci pernikahan kalian dengan mawaddah dan rahmah.',
+        timestamp: '18 Mei 2025',
       },
       {
         id: 'gb-2',
         name: 'Clarissa & Adi',
         relation: 'Sahabat Mempelai',
-        message: 'Turut berbahagia atas hari pernikahan Aurelia dan Daniel! Semoga menjadi pasangan yang saling melengkapi hingga akhir waktu.',
-        timestamp: '19 Mei 2027',
+        message: 'Turut berbahagia atas pernikahan Zahra dan Fachri! Semoga senantiasa saling melengkapi dan menjadi keluarga yang sakinah.',
+        timestamp: '19 Mei 2025',
       },
     ],
   };
@@ -100,94 +100,100 @@ export function initInvitation() {
     toastTimeoutId = setTimeout(function () {
       toast.classList.remove('opacity-100', 'translate-y-0');
       toast.classList.add('opacity-0', 'translate-y-2');
-    }, 2800);
+    }, 3200);
   }
 
   /* ------------------------------------------------------------------------
-     3. GUEST PERSONALIZATION (URL ?to= Parameter & Preset Switcher)
+     3. URL QUERY PARAMETERS & PERSONALIZED GUEST INITIALIZATION
      ------------------------------------------------------------------------ */
-  function updateStepperDisplay() {
-    const stepperVal = document.getElementById('rsvp-stepper-value');
-    const stepperInput = document.getElementById('rsvp-pax-input');
-    const btnDecrement = document.getElementById('btn-stepper-decrement');
-    const btnIncrement = document.getElementById('btn-stepper-increment');
+  function parseUrlParameters() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const toParam = params.get('to') || params.get('u');
+      const paxParam = parseInt(params.get('pax') || '', 10);
 
-    if (stepperVal) stepperVal.textContent = String(currentStepperPax);
-    if (stepperInput) stepperInput.value = String(currentStepperPax);
-    if (btnDecrement) btnDecrement.disabled = currentStepperPax <= 1;
-    if (btnIncrement) btnIncrement.disabled = currentStepperPax >= activeGuestPreset.maxQuota;
+      if (toParam && toParam.trim()) {
+        const decodedName = decodeURIComponent(toParam.replace(/\+/g, ' ')).trim();
+        const quota = !isNaN(paxParam) && paxParam > 0 && paxParam <= 10 ? paxParam : 2;
+        return { name: decodedName, maxQuota: quota };
+      }
+    } catch (err) {
+      // URL parsing fallback
+    }
+    return weddingConfig.guestPresets[0];
   }
 
-  function applyGuestPreset(guestObj) {
+  function applyGuestData(guestObj) {
     activeGuestPreset = guestObj;
-    currentStepperPax = Math.min(guestObj.maxQuota, 2);
+    currentStepperPax = Math.min(2, guestObj.maxQuota);
 
+    // Update Cover
     const coverGuestName = document.getElementById('cover-guest-name');
-    const coverQuotaBadge = document.getElementById('cover-guest-quota-badge');
-    const heroGuestName = document.getElementById('hero-guest-name');
+    const coverGuestBadge = document.getElementById('cover-guest-quota-badge');
+    if (coverGuestName) coverGuestName.textContent = guestObj.name;
+    if (coverGuestBadge) {
+      coverGuestBadge.textContent =
+        'Undangan Berlaku untuk ' + guestObj.maxQuota + ' Orang Tamu';
+    }
+
+    // Update RSVP
+    const stepperVal = document.getElementById('rsvp-stepper-value');
+    const stepperInput = document.getElementById('rsvp-pax-input');
+    if (stepperVal) stepperVal.textContent = String(currentStepperPax);
+    if (stepperInput) stepperInput.value = String(currentStepperPax);
+
     const rsvpRegGuest = document.getElementById('rsvp-registered-guest');
     const rsvpQuotaPill = document.getElementById('rsvp-quota-pill');
     const rsvpNameInput = document.getElementById('rsvp-name');
     const rsvpPaxHint = document.getElementById('rsvp-pax-hint');
 
-    if (coverGuestName) coverGuestName.textContent = guestObj.name;
-    if (coverQuotaBadge) {
-      coverQuotaBadge.textContent = 'Undangan Berlaku untuk ' + guestObj.maxQuota + ' Orang Tamu';
-    }
-    if (heroGuestName) heroGuestName.textContent = guestObj.name;
     if (rsvpRegGuest) rsvpRegGuest.textContent = guestObj.name;
     if (rsvpQuotaPill) {
       rsvpQuotaPill.textContent = 'Kuota Maksimal: ' + guestObj.maxQuota + ' Tamu';
     }
     if (rsvpNameInput) rsvpNameInput.value = guestObj.name;
     if (rsvpPaxHint) {
-      rsvpPaxHint.textContent = 'Jumlah tamu dibatasi sesuai kuota undangan personal Anda (maksimal ' + guestObj.maxQuota + ' orang).';
+      rsvpPaxHint.textContent =
+        'Jumlah tamu dibatasi sesuai kuota personal (maksimal ' + guestObj.maxQuota + ' tamu).';
     }
 
-    updateStepperDisplay();
+    // Prefill Guestbook name
+    const gbNameInput = document.getElementById('gb-name');
+    if (gbNameInput && !gbNameInput.value) {
+      gbNameInput.value = guestObj.name;
+    }
   }
 
-  // Stepper Button Listeners
-  const btnDecrement = document.getElementById('btn-stepper-decrement');
-  const btnIncrement = document.getElementById('btn-stepper-increment');
+  applyGuestData(parseUrlParameters());
 
-  if (btnDecrement) {
-    btnDecrement.addEventListener('click', function () {
+  // RSVP Stepper Actions
+  const btnPaxDec = document.getElementById('btn-pax-decrement');
+  const btnPaxInc = document.getElementById('btn-pax-increment');
+  const stepperVal = document.getElementById('rsvp-stepper-value');
+  const stepperInput = document.getElementById('rsvp-pax-input');
+
+  if (btnPaxDec && btnPaxInc && stepperVal && stepperInput) {
+    btnPaxDec.addEventListener('click', function () {
       if (currentStepperPax > 1) {
-        currentStepperPax--;
-        updateStepperDisplay();
+        currentStepperPax -= 1;
+        stepperVal.textContent = String(currentStepperPax);
+        stepperInput.value = String(currentStepperPax);
       }
     });
-  }
 
-  if (btnIncrement) {
-    btnIncrement.addEventListener('click', function () {
+    btnPaxInc.addEventListener('click', function () {
       if (currentStepperPax < activeGuestPreset.maxQuota) {
-        currentStepperPax++;
-        updateStepperDisplay();
+        currentStepperPax += 1;
+        stepperVal.textContent = String(currentStepperPax);
+        stepperInput.value = String(currentStepperPax);
+      } else {
+        showToast('Jumlah maksimal sesuai kuota personal Anda (' + activeGuestPreset.maxQuota + ' tamu).');
       }
     });
-  }
-
-  // Check URL query parameters
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const toParam = params.get('to');
-    const quotaParam = parseInt(params.get('quota') || '2', 10);
-    if (toParam && toParam.trim()) {
-      applyGuestPreset({
-        name: toParam.trim().slice(0, 80),
-        maxQuota: Math.min(Math.max(quotaParam || 2, 1), 6),
-      });
-    } else {
-      applyGuestPreset(weddingConfig.guestPresets[0]);
-    }
-  } catch (e) {
-    applyGuestPreset(weddingConfig.guestPresets[0]);
   }
 
   /* ------------------------------------------------------------------------
-     4. CINEMATIC INVITATION OPENING & AUDIO SWELL
+     4. CINEMATIC CURTAIN REVEAL & OPENING AUDIO TRIGGER (600–900ms)
      ------------------------------------------------------------------------ */
   const coverEl = document.getElementById('invitation-cover');
   const btnOpenInvitation = document.getElementById('btn-open-invitation');
@@ -202,29 +208,26 @@ export function initInvitation() {
       if (!audioCtx) audioCtx = new AudioContextClass();
       if (audioCtx.state === 'suspended') audioCtx.resume();
 
-      // Delicate 4-note ascending harp arpeggio (F3, A3, C4, E4)
-      const chord = [349.23, 440.0, 523.25, 659.25];
-      chord.forEach(function (freq, i) {
-        setTimeout(function () {
-          if (!audioCtx) return;
-          const now = audioCtx.currentTime;
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(freq, now);
+      const notes = [261.63, 329.63, 392.0, 523.25, 659.25];
+      const now = audioCtx.currentTime;
 
-          gain.gain.setValueAtTime(0.0001, now);
-          gain.gain.linearRampToValueAtTime(0.055, now + 0.06);
-          gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
+      notes.forEach(function (freq, i) {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now + i * 0.1);
 
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start(now);
-          osc.stop(now + 2.45);
-        }, i * 95);
+        gain.gain.setValueAtTime(0.0001, now + i * 0.1);
+        gain.gain.linearRampToValueAtTime(0.04, now + i * 0.1 + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.1 + 1.2);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now + i * 0.1);
+        osc.stop(now + i * 0.1 + 1.25);
       });
     } catch (e) {
-      // Audio autoplay policy fallback
+      // Audio context error fallback
     }
   }
 
@@ -237,7 +240,7 @@ export function initInvitation() {
     if (!isMusicPlaying) {
       setTimeout(function () {
         toggleBackgroundMusic(true);
-      }, 450);
+      }, 400);
     }
 
     coverEl.classList.add('is-opening');
@@ -246,13 +249,18 @@ export function initInvitation() {
     const isReduced =
       document.body.classList.contains('reduced-motion-mode') ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const duration = isReduced ? 200 : 1080;
+    const duration = isReduced ? 200 : 800; // 800ms within 600-900ms range
 
     setTimeout(function () {
       coverEl.classList.add('is-opened');
       coverEl.setAttribute('aria-hidden', 'true');
       if (btnReopenCover) btnReopenCover.classList.remove('hidden');
-      if (mainInvitationEl) {
+      
+      // Smooth scroll to Scene 2 (Ayat Suci)
+      const ayatSection = document.getElementById('ayat');
+      if (ayatSection) {
+        ayatSection.scrollIntoView({ behavior: 'smooth' });
+      } else if (mainInvitationEl) {
         mainInvitationEl.focus({ preventScroll: true });
       }
     }, duration);
@@ -264,6 +272,7 @@ export function initInvitation() {
     coverEl.classList.remove('is-opened', 'is-opening');
     coverEl.removeAttribute('aria-hidden');
     document.body.classList.add('cover-locked');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (btnReopenCover) btnReopenCover.classList.add('hidden');
     if (btnOpenInvitation) btnOpenInvitation.focus();
   }
@@ -414,7 +423,7 @@ export function initInvitation() {
   const scrollProgressBar = document.getElementById('scroll-progress-bar');
   const desktopNavLinks = document.querySelectorAll('.nav-anchor');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-  const trackedSections = ['mempelai', 'kisah', 'hitung-mundur', 'acara', 'galeri', 'rsvp', 'ucapan', 'tanda-kasih'];
+  const trackedSections = ['ayat', 'kisah', 'mempelai', 'akad', 'resepsi', 'lokasi', 'ucapan', 'rsvp', 'tanda-kasih', 'closing'];
 
   if ('IntersectionObserver' in window) {
     const navObserver = new IntersectionObserver(
@@ -424,9 +433,9 @@ export function initInvitation() {
             const activeId = entry.target.id;
             desktopNavLinks.forEach(function (link) {
               const isMatch = link.getAttribute('data-nav-link') === activeId;
-              link.classList.toggle('text-[#3A272B]', isMatch);
+              link.classList.toggle('text-[#493237]', isMatch);
               link.classList.toggle('font-semibold', isMatch);
-              link.classList.toggle('border-[#D4BA72]', isMatch);
+              link.classList.toggle('border-[#D8C37B]', isMatch);
             });
             mobileNavLinks.forEach(function (link) {
               const isMatch = link.getAttribute('data-nav-link') === activeId;
@@ -466,87 +475,7 @@ export function initInvitation() {
   );
 
   /* ------------------------------------------------------------------------
-     7. LIVE TIMEZONE-AWARE COUNTDOWN
-     ------------------------------------------------------------------------ */
-  const targetTimestamp = new Date(weddingConfig.weddingDateISO).getTime();
-  const cdDays = document.getElementById('cd-days');
-  const cdHours = document.getElementById('cd-hours');
-  const cdMinutes = document.getElementById('cd-minutes');
-  const cdSeconds = document.getElementById('cd-seconds');
-  const cdExpiredBanner = document.getElementById('countdown-expired-banner');
-  const cdSrSummary = document.getElementById('countdown-sr-summary');
-
-  function pad2(n) {
-    return n < 10 ? '0' + n : String(n);
-  }
-
-  function updateCountdown() {
-    const now = Date.now();
-    const diff = Math.max(0, targetTimestamp - now);
-
-    if (diff <= 0) {
-      if (cdDays) cdDays.textContent = '00';
-      if (cdHours) cdHours.textContent = '00';
-      if (cdMinutes) cdMinutes.textContent = '00';
-      if (cdSeconds) cdSeconds.textContent = '00';
-      if (cdExpiredBanner) cdExpiredBanner.classList.remove('hidden');
-      if (cdSrSummary) {
-        cdSrSummary.textContent = 'Hari pernikahan Aurelia dan Daniel pada 14 Juni 2027 telah tiba.';
-      }
-      return;
-    }
-
-    if (cdExpiredBanner) cdExpiredBanner.classList.add('hidden');
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    if (cdDays && cdDays.textContent !== String(days)) cdDays.textContent = String(days);
-    if (cdHours && cdHours.textContent !== pad2(hours)) cdHours.textContent = pad2(hours);
-    if (cdMinutes && cdMinutes.textContent !== pad2(minutes)) cdMinutes.textContent = pad2(minutes);
-    if (cdSeconds) cdSeconds.textContent = pad2(seconds);
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  // ICS Download
-  const btnDownloadIcs = document.getElementById('btn-download-ics');
-  if (btnDownloadIcs) {
-    btnDownloadIcs.addEventListener('click', function () {
-      const icsLines = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODID:-//Soft Romance in Bloom//Aurelia & Daniel Wedding//ID',
-        'BEGIN:VEVENT',
-        'UID:aurelia-daniel-20270614@softromanceinbloom.id',
-        'DTSTAMP:20261029T030000Z',
-        'DTSTART:20270614T090000Z',
-        'DTEND:20270614T143000Z',
-        'SUMMARY:Pernikahan Aurelia & Daniel',
-        'DESCRIPTION:Pemberkatan (16.00 WIB) & Resepsi Malam (18.30 WIB) di The Grand Santika\\, Jakarta.',
-        'LOCATION:The Grand Santika\\, Jakarta',
-        'END:VEVENT',
-        'END:VCALENDAR',
-      ].join('\r\n');
-
-      const blob = new Blob([icsLines], { type: 'text/calendar;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Pernikahan-Aurelia-Daniel-14Juni2027.ics';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('Berkas kalender (.ics) berhasil diunduh');
-    });
-  }
-
-  /* ------------------------------------------------------------------------
-     8. ACCESSIBLE GALLERY LIGHTBOX
+     7. ACCESSIBLE GALLERY LIGHTBOX
      ------------------------------------------------------------------------ */
   const lightboxModal = document.getElementById('lightbox-modal');
   const lightboxImg = document.getElementById('lightbox-image');
@@ -614,7 +543,7 @@ export function initInvitation() {
   }
 
   /* ------------------------------------------------------------------------
-     9. VENUE MAP & CONFIG MODALS
+     8. VENUE MAP MODAL
      ------------------------------------------------------------------------ */
   const venueModal = document.getElementById('venue-map-modal');
   const venueSubtitle = document.getElementById('venue-modal-subtitle');
@@ -651,7 +580,6 @@ export function initInvitation() {
     });
   }
 
-
   // Global Keyboard Shortcuts
   document.addEventListener('keydown', function (e) {
     if (lightboxModal && !lightboxModal.classList.contains('hidden')) {
@@ -670,16 +598,11 @@ export function initInvitation() {
     if (venueModal && !venueModal.classList.contains('hidden') && e.key === 'Escape') {
       e.preventDefault();
       closeVenueModal();
-      return;
-    }
-    if (configModal && !configModal.classList.contains('hidden') && e.key === 'Escape') {
-      e.preventDefault();
-      closeConfigModal();
     }
   });
 
   /* ------------------------------------------------------------------------
-     10. FRICTIONLESS RSVP VALIDATION & WHATSAPP ACTION
+     9. FRICTIONLESS RSVP VALIDATION & WHATSAPP ACTION
      ------------------------------------------------------------------------ */
   const rsvpForm = document.getElementById('rsvp-form');
   const rsvpNameInput = document.getElementById('rsvp-name');
@@ -693,15 +616,9 @@ export function initInvitation() {
   const btnEditRsvp = document.getElementById('btn-edit-rsvp');
   const btnRsvpWhatsApp = document.getElementById('btn-rsvp-whatsapp');
 
-  const labelAttending = document.getElementById('label-attendance-hadir');
-  const labelDeclined = document.getElementById('label-attendance-tidak');
-
-  // Toggle Attendance Radio Card Styles
   document.querySelectorAll('input[name="attendance"]').forEach(function (radio) {
     radio.addEventListener('change', function () {
       const isAttending = radio.value === 'hadir' && radio.checked;
-      if (labelAttending) labelAttending.classList.toggle('is-selected', isAttending);
-      if (labelDeclined) labelDeclined.classList.toggle('is-declined', !isAttending);
       if (rsvpPaxWrapper) rsvpPaxWrapper.classList.toggle('hidden', !isAttending);
       if (rsvpDietaryWrapper) rsvpDietaryWrapper.classList.toggle('hidden', !isAttending);
     });
@@ -719,7 +636,6 @@ export function initInvitation() {
       const attendance = attendanceRadio ? attendanceRadio.value : 'hadir';
       const pax = attendance === 'hadir' ? currentStepperPax : 0;
       const dietary = document.getElementById('rsvp-dietary')?.value.trim() || '';
-      const note = document.getElementById('rsvp-note')?.value.trim() || '';
 
       if (guestName.length < 2) {
         if (rsvpNameError) {
@@ -743,13 +659,12 @@ export function initInvitation() {
           attendance: attendance,
           pax: pax,
           dietary: dietary,
-          note: note,
           updatedAt: new Date().toISOString(),
         };
         safeSetStorage('srib_rsvp', payload);
 
         if (rsvpSubmitBtn) rsvpSubmitBtn.disabled = false;
-        if (rsvpSubmitLabel) rsvpSubmitLabel.textContent = 'Kirim Konfirmasi RSVP';
+        if (rsvpSubmitLabel) rsvpSubmitLabel.textContent = 'Kirim Konfirmasi';
 
         if (rsvpForm) rsvpForm.classList.add('hidden');
         if (rsvpConfirmPanel) rsvpConfirmPanel.classList.remove('hidden');
@@ -762,18 +677,18 @@ export function initInvitation() {
               '. Konfirmasi kehadiran untuk ' +
               pax +
               ' orang tamu telah berhasil kami catat.' +
-              (dietary ? ' Catatan diet: ' + dietary + '.' : '')
+              (dietary ? ' Catatan: ' + dietary + '.' : '')
               : 'Terima kasih atas kabar dari ' +
               guestName +
               '. Doa restu dan ketulusan Anda sangat berarti bagi kami.';
         }
 
-        // Generate Pre-Filled WhatsApp Confirmation Link
+        // Generate Pre-Filled WhatsApp Confirmation Link for Zahra & Fachri
         if (btnRsvpWhatsApp) {
           const waMessage =
             attendance === 'hadir'
-              ? `Halo Aurelia %26 Daniel, saya ${encodeURIComponent(guestName)} mengonfirmasi HADIR pada perayaan pernikahan kalian untuk ${pax} tamu. ${dietary ? `(Diet: ${encodeURIComponent(dietary)})` : ''}`
-              : `Halo Aurelia %26 Daniel, saya ${encodeURIComponent(guestName)} berhalangan hadir namun mendoakan kebahagiaan dan kelancaran untuk pernikahan kalian.`;
+              ? `Halo Zahra %26 Fachri, saya ${encodeURIComponent(guestName)} mengonfirmasi HADIR pada perayaan pernikahan kalian untuk ${pax} tamu. ${dietary ? `(Catatan: ${encodeURIComponent(dietary)})` : ''}`
+              : `Halo Zahra %26 Fachri, saya ${encodeURIComponent(guestName)} berhalangan hadir namun mendoakan kebahagiaan dan kelancaran untuk pernikahan kalian.`;
           btnRsvpWhatsApp.href = `https://wa.me/?text=${waMessage}`;
         }
 
@@ -791,7 +706,7 @@ export function initInvitation() {
   }
 
   /* ------------------------------------------------------------------------
-     11. DIGITAL GUESTBOOK STREAM
+     10. DIGITAL GUESTBOOK STREAM
      ------------------------------------------------------------------------ */
   const gbForm = document.getElementById('guestbook-form');
   const gbNameInput = document.getElementById('gb-name');
@@ -799,7 +714,6 @@ export function initInvitation() {
   const gbMessageInput = document.getElementById('gb-message');
   const gbNameError = document.getElementById('gb-name-error');
   const gbMessageError = document.getElementById('gb-message-error');
-  const gbCharCount = document.getElementById('gb-char-count');
   const gbList = document.getElementById('guestbook-list');
 
   let guestbookMessages = safeGetStorage('srib_guestbook', weddingConfig.initialGuestbook);
@@ -812,11 +726,11 @@ export function initInvitation() {
       card.className = 'stationery-card p-5 sm:p-6 shadow-sm';
 
       const header = document.createElement('div');
-      header.className = 'flex items-baseline justify-between gap-2 border-b border-[#644950]/15 pb-2 mb-2.5';
+      header.className = 'flex items-baseline justify-between gap-2 border-b border-[#493237]/10 pb-2 mb-2.5';
 
       const titleWrap = document.createElement('div');
       const author = document.createElement('h3');
-      author.className = 'font-display text-base text-[#3A272B] font-medium inline';
+      author.className = 'font-display text-base text-[#493237] font-medium inline';
       author.textContent = entry.name;
       titleWrap.appendChild(author);
 
@@ -828,14 +742,14 @@ export function initInvitation() {
       }
 
       const time = document.createElement('span');
-      time.className = 'text-[11px] text-[#61664C]';
+      time.className = 'text-[11px] text-[#6B6F52]';
       time.textContent = entry.timestamp || 'Baru saja';
 
       header.appendChild(titleWrap);
       header.appendChild(time);
 
       const body = document.createElement('p');
-      body.className = 'text-xs sm:text-sm text-[#3A272B]/90 leading-relaxed font-serif italic';
+      body.className = 'text-xs sm:text-sm text-[#493237]/90 leading-relaxed font-serif italic';
       body.textContent = '“' + entry.message + '”';
 
       card.appendChild(header);
@@ -845,12 +759,6 @@ export function initInvitation() {
   }
 
   renderGuestbook();
-
-  if (gbMessageInput && gbCharCount) {
-    gbMessageInput.addEventListener('input', function () {
-      gbCharCount.textContent = gbMessageInput.value.length + ' / 280';
-    });
-  }
 
   if (gbForm) {
     gbForm.addEventListener('submit', function (e) {
@@ -894,13 +802,12 @@ export function initInvitation() {
       renderGuestbook();
 
       gbForm.reset();
-      if (gbCharCount) gbCharCount.textContent = '0 / 280';
       showToast('Terima kasih, untaian doa Anda telah ditambahkan');
     });
   }
 
   /* ------------------------------------------------------------------------
-     12. 1-TAP COPY ACCOUNT NUMBER WITH TOAST FEEDBACK
+     11. 1-TAP COPY ACCOUNT NUMBER WITH TOAST FEEDBACK
      ------------------------------------------------------------------------ */
   function copyTextWithFallback(text, onSuccess) {
     if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
@@ -939,12 +846,12 @@ export function initInvitation() {
 
       copyTextWithFallback(val, function () {
         if (textSpan) textSpan.textContent = 'Nomor Berhasil Disalin';
-        btn.classList.add('bg-[#61664C]', 'text-[#FAF6F0]', 'border-[#61664C]');
+        btn.classList.add('bg-[#6B6F52]', 'text-[#FAF6F0]', 'border-[#6B6F52]');
         showToast(label + ' berhasil disalin ke clipboard');
 
         setTimeout(function () {
           if (textSpan) textSpan.textContent = 'Salin Nomor Rekening';
-          btn.classList.remove('bg-[#61664C]', 'text-[#FAF6F0]', 'border-[#61664C]');
+          btn.classList.remove('bg-[#6B6F52]', 'text-[#FAF6F0]', 'border-[#6B6F52]');
         }, 2200);
       });
     });
