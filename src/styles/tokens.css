@@ -1,0 +1,51 @@
+:root {
+  /* ==========================================================================
+     ROMANTIC EDITORIAL & BOTANICAL DESIGN TOKENS
+     ========================================================================== */
+  --color-dusty-pink: #E7B8C4;
+  --color-dusty-pink-soft: rgba(231, 184, 196, 0.28);
+  --color-dusty-pink-subtle: rgba(231, 184, 196, 0.14);
+  --color-mauve: #C98AA3;
+  --color-mauve-deep: #A8647F;
+  --color-sage: #61664C;
+  --color-sage-soft: rgba(97, 102, 76, 0.12);
+  --color-sage-deep: #464A35;
+  --color-ivory: #FAF6F0;
+  --color-ivory-elevated: #FFFDFB;
+  --color-ivory-warm: #F3ECE4;
+  --color-gold: #D4BA72;
+  --color-gold-muted: rgba(212, 186, 114, 0.45);
+  --color-gold-glow: rgba(212, 186, 114, 0.25);
+  --color-ink: #3A272B;
+  --color-ink-muted: #644950;
+  --color-muted-rose: #9A7078;
+  --color-border: rgba(100, 73, 80, 0.18);
+  --color-border-gold: rgba(212, 186, 114, 0.45);
+  --color-error: #9E3B42;
+  --color-success: #4A6342;
+
+  /* Editorial Fluid Typography */
+  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Allura', cursive;
+
+  /* Fluid Scales */
+  --text-couple-cover: clamp(2.4rem, 6.2vw, 4.4rem);
+  --text-couple-hero: clamp(2.3rem, 5.2vw, 4.1rem);
+  --text-section-title: clamp(1.85rem, 3.8vw, 2.85rem);
+  --text-script-accent: clamp(2.1rem, 4.4vw, 3.2rem);
+  --text-body: clamp(0.9375rem, 1.05vw, 1.05rem);
+  --text-eyebrow: clamp(0.68rem, 0.85vw, 0.78rem);
+
+  /* Refined Easing & Timing */
+  --ease-editorial: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-silk: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-curtain: cubic-bezier(0.22, 1, 0.32, 1);
+  --ease-wax: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-micro: 180ms;
+  --dur-entrance: 520ms;
+  --dur-image: 720ms;
+  --dur-cover: 920ms;
+  --dur-curtain: 1150ms;
+}

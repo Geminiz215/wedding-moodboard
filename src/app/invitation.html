@@ -1,0 +1,1630 @@
+  <!-- Skip to Main Content for Accessibility -->
+  <a href="#main-invitation" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-[#3A272B] focus:text-[#FAF6F0] focus:px-4 focus:py-2.5 focus:rounded-md">
+    Langsung ke Isi Undangan Utama
+  </a>
+
+  <!-- ==========================================================================
+       TOP PROGRESS LINE (2px Antique Gold & Dusty Rose)
+       ========================================================================== -->
+  <div class="fixed top-0 left-0 right-0 h-[2.5px] z-50 pointer-events-none bg-transparent" aria-hidden="true">
+    <div id="scroll-progress-bar" class="h-full bg-gradient-to-r from-[#D4BA72] via-[#C98AA3] to-[#D4BA72] origin-left transition-transform duration-150 ease-out" style="transform: scaleX(0);"></div>
+  </div>
+
+  <!-- ==========================================================================
+       TOP STUDIO UTILITY BAR (Guest Preset, Config/Doc & Cover Reopen)
+       ========================================================================== -->
+  <aside aria-label="Panel Pratinjau & Pengaturan Tamu" class="fixed top-2.5 left-3 z-50 flex items-center gap-1.5 bg-[#FFFDFB]/90 backdrop-blur-md border border-[#644950]/20 rounded-full px-2.5 py-1 shadow-sm text-[11px] text-[#3A272B]">
+    <span class="hidden sm:inline-flex items-center gap-1 font-medium text-[#61664C] pl-1">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#61664C]"></span>
+      Pratinjau Tamu:
+    </span>
+    <label for="guest-preset-select" class="sr-only">Pilih Pratinjau Tamu Undangan</label>
+    <select id="guest-preset-select" class="bg-transparent font-medium text-[#3A272B] pr-1 py-0.5 rounded focus:outline-none cursor-pointer max-w-[150px] sm:max-w-[210px] truncate" title="Simulasikan tampilan undangan berdasarkan kuota & nama tamu">
+      <option value="0">Keluarga Besar Bpk. Wijaya (Kuota 2)</option>
+      <option value="1">Sahabat — Rania Putri (Kuota 1)</option>
+      <option value="2">Keluarga Dr. Hendra Kusuma (Kuota 4)</option>
+    </select>
+    <span class="text-[#644950]/30" aria-hidden="true">|</span>
+    <button type="button" id="btn-open-moodboard-modal" class="px-2 py-0.5 rounded-full hover:bg-[#E7B8C4]/30 text-[#3A272B] font-medium transition-colors cursor-pointer" title="Lihat Dokumentasi & Desain Moodboard">
+      Panduan
+    </button>
+    <button type="button" id="btn-reopen-cover" class="hidden px-2 py-0.5 rounded-full bg-[#E7B8C4]/35 hover:bg-[#E7B8C4]/60 text-[#3A272B] font-medium transition-colors cursor-pointer" title="Buka kembali sampul pembuka">
+      Sampul
+    </button>
+  </aside>
+
+  <!-- ==========================================================================
+       TOP-RIGHT CONTROLS: AUDIO & REDUCED MOTION TOGGLE
+       ========================================================================== -->
+  <div class="fixed top-2.5 right-3 z-50 flex items-center gap-2">
+    <!-- Reduced Motion Button -->
+    <button
+      type="button"
+      id="btn-reduced-motion"
+      aria-pressed="false"
+      aria-label="Mode Gerak Minimal (Reduced Motion)"
+      title="Mode Gerak Minimal (Reduced Motion)"
+      class="min-w-[44px] min-h-[44px] px-3 rounded-full bg-[#FFFDFB]/90 backdrop-blur-md border border-[#644950]/20 text-[#3A272B] hover:border-[#C98AA3] transition-colors flex items-center justify-center gap-1.5 shadow-sm cursor-pointer text-xs font-medium"
+    >
+      <svg class="w-4 h-4 text-[#61664C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2M5.64 5.64l1.41 1.41m9.9 9.9 1.41 1.41M3 12h2m14 0h2M5.64 18.36l1.41-1.41m9.9-9.9 1.41-1.41" />
+      </svg>
+      <span id="reduced-motion-label" class="hidden md:inline">Animasi: Normal</span>
+    </button>
+
+    <!-- Music Equalizer Toggle -->
+    <button
+      type="button"
+      id="btn-music-toggle"
+      aria-pressed="false"
+      aria-label="Putar musik latar instrumental romantis"
+      title="Putar / Hentikan Musik Latar"
+      class="min-w-[44px] min-h-[44px] px-3.5 rounded-full bg-[#FFFDFB]/90 backdrop-blur-md border border-[#644950]/20 text-[#3A272B] hover:border-[#C98AA3] transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer text-xs font-medium"
+    >
+      <div id="soundwave-container" class="hidden items-end gap-[2px] h-3.5 w-3.5 text-[#61664C]" aria-hidden="true">
+        <span class="soundwave-bar w-[2px] bg-current rounded-full"></span>
+        <span class="soundwave-bar w-[2px] bg-current rounded-full"></span>
+        <span class="soundwave-bar w-[2px] bg-current rounded-full"></span>
+        <span class="soundwave-bar w-[2px] bg-current rounded-full"></span>
+      </div>
+      <svg id="icon-music-off" class="w-4 h-4 text-[#9A7078] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 18V5l12-2v13" />
+        <circle cx="6" cy="18" r="3" />
+        <circle cx="18" cy="16" r="3" />
+        <line x1="3" y1="3" x2="21" y2="21" stroke="#9E3B42" stroke-width="1.75" />
+      </svg>
+      <span id="music-status-label" class="hidden sm:inline">Musik: Mati</span>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION 0: CINEMATIC OPENING INVITATION (Velvet Gatefold & 3D Wax Seal)
+       ========================================================================== -->
+  <section
+    id="invitation-cover"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cover-couple-names"
+    aria-describedby="cover-recipient-greeting"
+    class="fixed inset-0 z-40 flex items-center justify-center overflow-hidden paper-surface px-4 py-6"
+  >
+    <!-- Soft Golden Ethereal Light Beam (Reveals on Open) -->
+    <div class="curtain-light-beam pointer-events-none absolute inset-0 z-0 flex items-center justify-center opacity-0" aria-hidden="true">
+      <div class="w-[85vw] max-w-4xl h-[85vh] rounded-full bg-gradient-radial from-[#F7E7CD]/60 via-[#E7B8C4]/20 to-transparent blur-3xl"></div>
+    </div>
+
+    <!-- Classical Scalloped Velvet Pelmet at Top -->
+    <div class="curtain-pelmet pointer-events-none absolute top-0 left-0 right-0 h-16 sm:h-24 z-15 overflow-hidden" aria-hidden="true">
+      <svg class="w-full h-full text-[#464A35]" viewBox="0 0 1000 120" preserveAspectRatio="none">
+        <path d="M0,0 L1000,0 L1000,45 Q750,110 500,45 Q250,110 0,45 Z" fill="#464A35" opacity="0.95" />
+        <path d="M0,45 Q250,110 500,45 Q750,110 1000,45" fill="none" stroke="#D4BA72" stroke-width="1.8" />
+        <path d="M0,50 Q250,115 500,50 Q750,115 1000,50" fill="none" stroke="#F4E6BD" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.75" />
+      </svg>
+    </div>
+
+    <!-- Left Sage Velvet Gatefold Drapery -->
+    <div class="curtain-left pointer-events-none absolute top-0 left-0 bottom-0 w-1/2 z-10 overflow-hidden" aria-hidden="true">
+      <svg class="absolute top-0 left-0 w-full h-full text-[#61664C]" viewBox="0 0 500 900" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="sageCurtainLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#343823" />
+            <stop offset="20%" stop-color="#555A3F" />
+            <stop offset="40%" stop-color="#3E422B" />
+            <stop offset="65%" stop-color="#656B4C" />
+            <stop offset="85%" stop-color="#464B31" />
+            <stop offset="100%" stop-color="#5B6143" />
+          </linearGradient>
+          <linearGradient id="roseRibbonLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#C98AA3" stop-opacity="0.65" />
+            <stop offset="100%" stop-color="#E7B8C4" stop-opacity="0.1" />
+          </linearGradient>
+          <linearGradient id="goldBraidLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#F2DD9D" />
+            <stop offset="50%" stop-color="#D4BA72" />
+            <stop offset="100%" stop-color="#A68C48" />
+          </linearGradient>
+        </defs>
+        <!-- Velvet folds & depth shadows -->
+        <rect width="100%" height="100%" fill="url(#sageCurtainLeft)" />
+        <path d="M0,0 Q130,450 0,900 L65,900 Q195,450 65,0 Z" fill="#252818" opacity="0.4" />
+        <path d="M130,0 Q260,450 130,900 L195,900 Q325,450 195,0 Z" fill="#252818" opacity="0.32" />
+        <path d="M260,0 Q390,450 260,900 L325,900 Q455,450 325,0 Z" fill="#252818" opacity="0.25" />
+        <path d="M0,0 L500,0 C430,95 310,135 180,110 C90,90 40,165 0,260 Z" fill="url(#roseRibbonLeft)" />
+        <path d="M500,0 L470,0 Q320,450 470,900 L500,900 Z" fill="#252818" opacity="0.25" />
+        <!-- Inner Hemline Gold Trim -->
+        <line x1="497" y1="0" x2="497" y2="900" stroke="url(#goldBraidLeft)" stroke-width="2.5" opacity="0.9" />
+        <line x1="492" y1="0" x2="492" y2="900" stroke="#F4E6BD" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.7" />
+      </svg>
+      <!-- Bottom-Left Botanical Peony Sprig -->
+      <img
+        src="/assets/floral_cluster_cutout.webp"
+        alt=""
+        width="340"
+        height="336"
+        class="ambient-floral-sway absolute -bottom-10 -left-10 w-52 sm:w-72 md:w-80 opacity-95 select-none pointer-events-none"
+      />
+    </div>
+
+    <!-- Right Sage Velvet Gatefold Drapery -->
+    <div class="curtain-right pointer-events-none absolute top-0 right-0 bottom-0 w-1/2 z-10 overflow-hidden" aria-hidden="true">
+      <svg class="absolute top-0 right-0 w-full h-full text-[#61664C]" viewBox="0 0 500 900" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="sageCurtainRight" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#343823" />
+            <stop offset="20%" stop-color="#555A3F" />
+            <stop offset="40%" stop-color="#3E422B" />
+            <stop offset="65%" stop-color="#656B4C" />
+            <stop offset="85%" stop-color="#464B31" />
+            <stop offset="100%" stop-color="#5B6143" />
+          </linearGradient>
+          <linearGradient id="roseRibbonRight" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#C98AA3" stop-opacity="0.65" />
+            <stop offset="100%" stop-color="#E7B8C4" stop-opacity="0.1" />
+          </linearGradient>
+          <linearGradient id="goldBraidRight" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#F2DD9D" />
+            <stop offset="50%" stop-color="#D4BA72" />
+            <stop offset="100%" stop-color="#A68C48" />
+          </linearGradient>
+        </defs>
+        <!-- Velvet folds & depth shadows -->
+        <rect width="100%" height="100%" fill="url(#sageCurtainRight)" />
+        <path d="M500,0 Q370,450 500,900 L435,900 Q305,450 435,0 Z" fill="#252818" opacity="0.4" />
+        <path d="M370,0 Q240,450 370,900 L305,900 Q175,450 305,0 Z" fill="#252818" opacity="0.32" />
+        <path d="M240,0 Q110,450 240,900 L175,900 Q45,450 175,0 Z" fill="#252818" opacity="0.25" />
+        <path d="M500,0 L0,0 C70,95 190,135 320,110 C410,90 460,165 500,260 Z" fill="url(#roseRibbonRight)" />
+        <path d="M0,0 L30,0 Q180,450 30,900 L0,900 Z" fill="#252818" opacity="0.25" />
+        <!-- Inner Hemline Gold Trim -->
+        <line x1="3" y1="0" x2="3" y2="900" stroke="url(#goldBraidRight)" stroke-width="2.5" opacity="0.9" />
+        <line x1="8" y1="0" x2="8" y2="900" stroke="#F4E6BD" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.7" />
+      </svg>
+      <!-- Bottom-Right Botanical Peony Sprig (Mirrored) -->
+      <img
+        src="/assets/floral_cluster_cutout.webp"
+        alt=""
+        width="340"
+        height="336"
+        class="ambient-floral-sway absolute -bottom-10 -right-10 w-52 sm:w-72 md:w-80 opacity-95 select-none pointer-events-none -scale-x-100"
+      />
+    </div>
+
+    <!-- Central Couture Arch Stationery Envelope -->
+    <div class="cover-card-shell relative z-20 w-full max-w-[460px] mx-auto my-auto">
+      
+      <!-- Silk Bow Crest Accent -->
+      <div class="flex justify-center -mb-5 relative z-30" aria-hidden="true">
+        <svg class="w-28 h-16 drop-shadow-sm" viewBox="0 0 160 90" fill="none">
+          <path d="M74 44 C64 62 52 76 42 86 L58 84 C66 72 73 58 78 46 Z" fill="#E7B8C4" stroke="#C98AA3" stroke-width="0.8"/>
+          <path d="M86 44 C96 62 108 76 118 86 L102 84 C94 72 87 58 82 46 Z" fill="#E7B8C4" stroke="#C98AA3" stroke-width="0.8"/>
+          <path d="M78 40 C52 14 20 20 24 42 C27 58 56 54 78 42 Z" fill="#F2D2DB" stroke="#C98AA3" stroke-width="1"/>
+          <path d="M82 40 C108 14 140 20 136 42 C133 58 104 54 82 42 Z" fill="#F2D2DB" stroke="#C98AA3" stroke-width="1"/>
+          <path d="M74 40 C56 32 40 35 34 42" stroke="#C98AA3" stroke-width="0.8" opacity="0.65"/>
+          <path d="M86 40 C104 32 120 35 126 42" stroke="#C98AA3" stroke-width="0.8" opacity="0.65"/>
+          <ellipse cx="80" cy="41" rx="7" ry="6" fill="#E7B8C4" stroke="#C98AA3" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <!-- Stationery Card Inside Envelope -->
+      <div class="arch-frame px-6 sm:px-10 pt-12 pb-8 sm:pb-10 text-center shadow-xl relative overflow-hidden">
+        
+        <!-- SVG Border Drawing Animation -->
+        <svg class="pointer-events-none absolute inset-0 w-full h-full" viewBox="0 0 400 540" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <path
+            id="cover-arch-svg-path"
+            class="ornament-path is-visible"
+            d="M 16,524 L 16,200 A 184,184 0 0 1 384,200 L 384,524 Z"
+            stroke="#D4BA72"
+            stroke-width="1.5"
+            fill="none"
+          />
+        </svg>
+
+        <!-- Eyebrow -->
+        <p class="font-eyebrow text-[#9A7078] mb-2 tracking-[0.28em]">
+          THE WEDDING OF
+        </p>
+
+        <!-- Couple Names -->
+        <h1 id="cover-couple-names" class="font-couple-cover font-normal uppercase text-[#3A272B]">
+          <span class="block" id="cover-bride-name">AURELIA</span>
+          <span class="font-script-accent lowercase block -my-1 sm:-my-2 text-[#9A7078]" style="letter-spacing: 0;">and</span>
+          <span class="block" id="cover-groom-name">DANIEL</span>
+        </h1>
+
+        <!-- Date & Location -->
+        <div class="mt-4 sm:mt-5 space-y-1 text-xs sm:text-[13px] tracking-[0.18em] uppercase text-[#3A272B]/90 font-medium">
+          <p id="cover-date-text">SABTU, 14 JUNI 2027</p>
+          <p class="text-[11px] text-[#9A7078] tracking-[0.2em]">PUKUL 16.00 WIB</p>
+          <p id="cover-venue-text" class="pt-1.5 text-[#3A272B]">THE GRAND SANTIKA, JAKARTA</p>
+        </div>
+
+        <!-- Gold Hairline Divider with Ribbon Knot -->
+        <div class="my-4 flex items-center justify-center gap-3" aria-hidden="true">
+          <span class="h-[1px] w-12 bg-[#D4BA72]"></span>
+          <svg class="w-6 h-5 text-[#9A7078]" viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M16 10 C10 3, 3 5, 5 11 C7 15, 13 12, 16 10 Z" />
+            <path d="M16 10 C22 3, 29 5, 27 11 C25 15, 19 12, 16 10 Z" />
+            <path d="M16 10 C13 16, 11 20, 9 23" stroke-linecap="round" />
+            <path d="M16 10 C19 16, 21 20, 23 23" stroke-linecap="round" />
+          </svg>
+          <span class="h-[1px] w-12 bg-[#D4BA72]"></span>
+        </div>
+
+        <!-- Personalized Guest Plaque -->
+        <div id="cover-recipient-greeting" class="bg-[#FAF6F0]/90 border border-[#644950]/20 rounded-xl px-4 py-3 mb-6 mx-auto max-w-xs shadow-inner">
+          <p class="text-[10px] uppercase tracking-[0.16em] text-[#9A7078] mb-0.5">
+            Kepada Yth. Bapak/Ibu/Saudara/i
+          </p>
+          <p id="cover-guest-name" class="font-display text-base sm:text-lg font-medium text-[#3A272B] leading-snug">
+            Keluarga Besar Bpk. Wijaya
+          </p>
+          <div class="mt-1 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#61664C]"></span>
+            <p id="cover-guest-quota-badge" class="text-[11px] text-[#61664C] font-medium">
+              Undangan Berlaku untuk 2 Orang Tamu
+            </p>
+          </div>
+        </div>
+
+        <!-- 3D Wax Seal Opening Trigger Button -->
+        <div class="flex flex-col items-center justify-center">
+          <button
+            type="button"
+            id="btn-open-invitation"
+            class="wax-seal-btn group relative w-20 h-20 rounded-full flex flex-col items-center justify-center text-[#FAF6F0] cursor-pointer"
+            aria-label="Pecahkan segel lilin dan buka undangan"
+          >
+            <!-- Monogram in Wax -->
+            <span class="font-display text-lg font-semibold tracking-wider text-[#FAF6F0] drop-shadow-sm group-hover:scale-105 transition-transform">
+              A&amp;D
+            </span>
+            <span class="text-[8px] uppercase tracking-[0.2em] text-[#E7B8C4] mt-0.5">BUKA</span>
+          </button>
+          
+          <p class="mt-3 text-xs uppercase tracking-[0.18em] font-medium text-[#3A272B]" id="btn-open-invitation-label">
+            Ketuk Segel untuk Membuka
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DESKTOP EDITORIAL STICKY HEADER
+       ========================================================================== -->
+  <header id="site-header" class="sticky top-0 z-30 bg-[#FFFDFB]/90 backdrop-blur-md border-b border-[#644950]/15 transition-opacity duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <!-- Monogram Stamp -->
+      <a href="#mempelai" class="flex items-center gap-2.5 text-[#3A272B] hover:text-[#9A7078] transition-colors py-1">
+        <span class="w-8 h-8 rounded-full border border-[#D4BA72] bg-[#FAF6F0] flex items-center justify-center font-display text-xs tracking-wider text-[#3A272B] shadow-sm">
+          A&amp;D
+        </span>
+        <span class="font-display text-sm tracking-[0.16em] uppercase hidden md:inline">
+          Aurelia &amp; Daniel
+        </span>
+      </a>
+
+      <!-- Desktop Anchor Nav Links -->
+      <nav aria-label="Navigasi Bagian Undangan" class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="#mempelai" data-nav-link="mempelai" class="nav-anchor px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#3A272B]/75 hover:text-[#3A272B] border-b-2 border-transparent transition-colors">Mempelai</a>
+        <a href="#kisah" data-nav-link="kisah" class="nav-anchor px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#3A272B]/75 hover:text-[#3A272B] border-b-2 border-transparent transition-colors">Kisah</a>
+        <a href="#hitung-mundur" data-nav-link="hitung-mundur" class="nav-anchor px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#3A272B]/75 hover:text-[#3A272B] border-b-2 border-transparent transition-colors">Waktu</a>
+        <a href="#acara" data-nav-link="acara" class="nav-anchor px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#3A272B]/75 hover:text-[#3A272B] border-b-2 border-transparent transition-colors">Acara</a>
+        <a href="#galeri" data-nav-link="galeri" class="nav-anchor px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#3A272B]/75 hover:text-[#3A272B] border-b-2 border-transparent transition-colors">Galeri</a>
+        <a href="#rsvp" data-nav-link="rsvp" class="nav-anchor px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#3A272B]/75 hover:text-[#3A272B] border-b-2 border-transparent transition-colors">RSVP</a>
+        <a href="#ucapan" data-nav-link="ucapan" class="nav-anchor px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#3A272B]/75 hover:text-[#3A272B] border-b-2 border-transparent transition-colors">Ucapan</a>
+        <a href="#tanda-kasih" data-nav-link="tanda-kasih" class="nav-anchor px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#3A272B]/75 hover:text-[#3A272B] border-b-2 border-transparent transition-colors">Tanda Kasih</a>
+      </nav>
+
+      <!-- Quick Action CTA -->
+      <a href="#rsvp" class="hidden md:inline-flex items-center min-h-[36px] px-5 py-1.5 rounded-full bg-[#3A272B] text-[#FAF6F0] hover:bg-[#52383e] text-[11px] uppercase tracking-[0.16em] font-medium transition-all shadow-sm">
+        Konfirmasi Hadir
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MOBILE FLOATING ERGONOMIC DOCK (Thumb-Zone Priority)
+       ========================================================================== -->
+  <nav
+    aria-label="Navigasi Cepat Seluler"
+    class="md:hidden fixed bottom-3 left-4 right-4 z-30 mobile-nav-dock rounded-2xl px-2 py-1.5 max-w-md mx-auto"
+  >
+    <ul class="grid grid-cols-5 items-center">
+      <li>
+        <a href="#mempelai" data-nav-link="mempelai" class="mobile-nav-link flex flex-col items-center justify-center min-h-[48px] text-[10px] uppercase tracking-wider text-[#3A272B]/75 hover:text-[#3A272B]">
+          <span class="nav-icon-wrap w-7 h-7 rounded-full flex items-center justify-center border border-transparent transition-all">
+            <svg class="w-4 h-4 text-[#9A7078]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </span>
+          <span class="mt-0.5">Mempelai</span>
+        </a>
+      </li>
+      <li>
+        <a href="#acara" data-nav-link="acara" class="mobile-nav-link flex flex-col items-center justify-center min-h-[48px] text-[10px] uppercase tracking-wider text-[#3A272B]/75 hover:text-[#3A272B]">
+          <span class="nav-icon-wrap w-7 h-7 rounded-full flex items-center justify-center border border-transparent transition-all">
+            <svg class="w-4 h-4 text-[#9A7078]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </span>
+          <span class="mt-0.5">Acara</span>
+        </a>
+      </li>
+      <li>
+        <a href="#galeri" data-nav-link="galeri" class="mobile-nav-link flex flex-col items-center justify-center min-h-[48px] text-[10px] uppercase tracking-wider text-[#3A272B]/75 hover:text-[#3A272B]">
+          <span class="nav-icon-wrap w-7 h-7 rounded-full flex items-center justify-center border border-transparent transition-all">
+            <svg class="w-4 h-4 text-[#9A7078]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="M21 15l-5-5L5 21"/>
+            </svg>
+          </span>
+          <span class="mt-0.5">Galeri</span>
+        </a>
+      </li>
+      <li>
+        <a href="#rsvp" data-nav-link="rsvp" class="mobile-nav-link flex flex-col items-center justify-center min-h-[48px] text-[10px] uppercase tracking-wider text-[#3A272B]/75 hover:text-[#3A272B]">
+          <span class="nav-icon-wrap w-7 h-7 rounded-full bg-[#E7B8C4]/40 border border-[#C98AA3] flex items-center justify-center transition-all shadow-sm">
+            <svg class="w-4 h-4 text-[#3A272B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </span>
+          <span class="mt-0.5 font-medium text-[#3A272B]">RSVP</span>
+        </a>
+      </li>
+      <li>
+        <a href="#tanda-kasih" data-nav-link="tanda-kasih" class="mobile-nav-link flex flex-col items-center justify-center min-h-[48px] text-[10px] uppercase tracking-wider text-[#3A272B]/75 hover:text-[#3A272B]">
+          <span class="nav-icon-wrap w-7 h-7 rounded-full flex items-center justify-center border border-transparent transition-all">
+            <svg class="w-4 h-4 text-[#9A7078]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <rect x="3" y="8" width="18" height="13" rx="2"/>
+              <path d="M12 8v13M3 12h18M12 8c-2.5-3.5-6-3-6 0s6 0 6 0zm0 0c2.5-3.5 6-3 6 0s-6 0-6 0z"/>
+            </svg>
+          </span>
+          <span class="mt-0.5">Kasih</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ==========================================================================
+       MAIN EDITORIAL INVITATION CONTENT
+       ========================================================================== -->
+  <main id="main-invitation" tabindex="-1" class="pb-28 md:pb-20 focus:outline-none">
+
+    <!-- ========================================================================
+         SECTION 1: HERO & MEMPELAI (Asymmetrical Editorial Art Direction)
+         ======================================================================== -->
+    <section id="mempelai" class="scroll-mt-16 relative py-16 sm:py-24 lg:py-28 px-4 sm:px-6 overflow-hidden">
+      <div class="max-w-5xl mx-auto">
+
+        <!-- Editorial Asymmetrical Layout: Left Copywriting, Right Arched Conservatory Portrait -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+          <!-- Left Column: Editorial Staggered Typography -->
+          <div class="lg:col-span-7 text-center lg:text-left">
+            <p data-motion="fadeRise" style="--stagger-delay: 0ms;" class="font-eyebrow mb-3">
+              I. A CELEBRATION OF LOVE
+            </p>
+
+            <h2 data-motion="fadeRise" style="--stagger-delay: 100ms;" class="font-couple-hero font-normal">
+              Aurelia <span class="font-script-accent text-[#9A7078] px-1">&amp;</span> Daniel
+            </h2>
+
+            <p data-motion="fadeRise" style="--stagger-delay: 200ms;" class="font-serif italic text-xl sm:text-2xl text-[#9A7078] mt-3 mb-5 leading-relaxed">
+              “In a garden of endless blooms, where two hearts become one.”
+            </p>
+
+            <p data-motion="fadeRise" style="--stagger-delay: 300ms;" class="text-[#3A272B]/90 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Dengan penuh rasa syukur dan sukacita, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada perayaan ikatan suci pernikahan kami.
+            </p>
+
+            <!-- Date & Location Editorial Metadata Pill -->
+            <div data-motion="fadeRise" style="--stagger-delay: 400ms;" class="mt-8 inline-flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 border-y border-[#D4BA72] py-4 px-6 bg-[#FFFDFB]/80 rounded-sm shadow-sm">
+              <div class="text-left">
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-[#9A7078]">Tanggal Pernikahan</span>
+                <span class="font-display text-sm sm:text-base font-medium text-[#3A272B]">Sabtu, 14 Juni 2027</span>
+              </div>
+              <span class="h-8 w-[1px] bg-[#D4BA72]" aria-hidden="true"></span>
+              <div class="text-left">
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-[#9A7078]">Lokasi Acara</span>
+                <span class="font-display text-sm sm:text-base font-medium text-[#3A272B]">The Grand Santika, Jakarta</span>
+              </div>
+            </div>
+
+            <!-- Personalized Welcome Banner in Hero -->
+            <div data-motion="fadeRise" style="--stagger-delay: 480ms;" class="mt-6 text-xs text-[#61664C] flex items-center justify-center lg:justify-start gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#E7B8C4] border border-[#C98AA3]"></span>
+              <span>Kehormatan bagi kami menyambut kehadiran: <strong id="hero-guest-name" class="text-[#3A272B] font-semibold">Keluarga Besar Bpk. Wijaya</strong></span>
+            </div>
+          </div>
+
+          <!-- Right Column: Fine-Art Botanical Conservatory Portrait in Arch Frame -->
+          <div class="lg:col-span-5 relative mx-auto w-full max-w-[390px]">
+            <div data-motion="softReveal" style="--stagger-delay: 180ms;" class="arch-frame p-3.5 shadow-arch">
+              <div class="overflow-hidden rounded-t-[180px] rounded-b-[10px] aspect-[3/4] bg-[#F3ECE4] relative">
+                <img
+                  src="/assets/editorial_couple_conservatory.jpg"
+                  alt="Potret editorial Aurelia dan Daniel di rumah kaca taman klasik berhiaskan tirai hijau sage dan mawar merah muda"
+                  width="756"
+                  height="1013"
+                  class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            </div>
+            <!-- Floating Botanical Cutout Accent -->
+            <img
+              src="/assets/floral_cluster_cutout.webp"
+              alt=""
+              width="220"
+              height="216"
+              aria-hidden="true"
+              class="pointer-events-none absolute -bottom-8 -left-8 w-32 sm:w-36 opacity-95 drop-shadow-md select-none"
+            />
+          </div>
+
+        </div>
+
+        <!-- Couple Profiles Stationery Cards -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          
+          <!-- Bride Card -->
+          <article data-motion="fadeRise" style="--stagger-delay: 0ms;" class="stationery-card p-7 sm:p-10 text-center flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 mx-auto mb-4 rounded-full border border-[#D4BA72] bg-[#FAF6F0] flex items-center justify-center font-display text-xl text-[#9A7078] shadow-sm">
+                A
+              </div>
+              <p class="font-eyebrow text-[11px] mb-1">Mempelai Wanita</p>
+              <h3 class="font-display text-2xl sm:text-3xl text-[#3A272B] font-normal">
+                Aurelia Larasati
+              </h3>
+              <p class="text-xs text-[#9A7078] mt-1 italic font-serif">
+                Putri Tercinta
+              </p>
+              <div class="my-4 h-[1px] w-20 bg-[#D4BA72] mx-auto" aria-hidden="true"></div>
+              <p class="text-xs sm:text-sm text-[#3A272B]/85 leading-relaxed">
+                Putri dari pasangan terkasih<br />
+                <strong class="font-medium text-[#3A272B]">[Nama Ayah Mempelai Wanita]</strong> &amp; <strong class="font-medium text-[#3A272B]">[Nama Ibu Mempelai Wanita]</strong>
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#644950]/15 flex items-center justify-center gap-2 text-xs text-[#61664C]">
+              <span>Jakarta, Indonesia</span>
+            </div>
+          </article>
+
+          <!-- Groom Card -->
+          <article data-motion="fadeRise" style="--stagger-delay: 120ms;" class="stationery-card p-7 sm:p-10 text-center flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 mx-auto mb-4 rounded-full border border-[#D4BA72] bg-[#FAF6F0] flex items-center justify-center font-display text-xl text-[#9A7078] shadow-sm">
+                D
+              </div>
+              <p class="font-eyebrow text-[11px] mb-1">Mempelai Pria</p>
+              <h3 class="font-display text-2xl sm:text-3xl text-[#3A272B] font-normal">
+                Daniel Pratama
+              </h3>
+              <p class="text-xs text-[#9A7078] mt-1 italic font-serif">
+                Putra Tercinta
+              </p>
+              <div class="my-4 h-[1px] w-20 bg-[#D4BA72] mx-auto" aria-hidden="true"></div>
+              <p class="text-xs sm:text-sm text-[#3A272B]/85 leading-relaxed">
+                Putra dari pasangan terkasih<br />
+                <strong class="font-medium text-[#3A272B]">[Nama Ayah Mempelai Pria]</strong> &amp; <strong class="font-medium text-[#3A272B]">[Nama Ibu Mempelai Pria]</strong>
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#644950]/15 flex items-center justify-center gap-2 text-xs text-[#61664C]">
+              <span>Jakarta, Indonesia</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Botanical Filigree Divider -->
+    <div class="max-w-xs mx-auto flex items-center justify-center gap-4 py-2" aria-hidden="true">
+      <span class="h-[1px] flex-1 bg-[#D4BA72]/70"></span>
+      <svg class="w-5 h-5 text-[#C98AA3]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" opacity="0.7"/>
+      </svg>
+      <span class="h-[1px] flex-1 bg-[#D4BA72]/70"></span>
+    </div>
+
+    <!-- ========================================================================
+         SECTION 2: KISAH KASIH (Editorial Love Journal & Milestones)
+         ======================================================================== -->
+    <section id="kisah" class="scroll-mt-16 py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-12">
+          <p data-motion="fadeRise" class="font-script-accent text-[#9A7078] mb-1">
+            Same love, new chapter
+          </p>
+          <h2 data-motion="fadeRise" style="--stagger-delay: 80ms;" class="font-section-heading font-normal">
+            Kisah Perjalanan Kami
+          </h2>
+          <p data-motion="fadeRise" style="--stagger-delay: 140ms;" class="mt-2 inline-block text-[11px] uppercase tracking-[0.16em] text-[#61664C] bg-[#61664C]/10 px-3 py-1 rounded-full font-medium">
+            II. THE JOURNEY
+          </p>
+        </div>
+
+        <!-- Editorial Story Card -->
+        <div class="stationery-card p-7 sm:p-11 mb-12">
+          <p data-motion="fadeRise" class="text-[#3A272B]/90 text-sm sm:text-base leading-relaxed mb-5">
+            Setiap perjalanan kasih memiliki musim mekarnya sendiri. Bagi <strong class="font-medium text-[#3A272B]">Aurelia &amp; Daniel</strong>, cerita ini bertumbuh dari percakapan sederhana di sebuah sore yang tenang, melintasi berbagai musim kehidupan, hingga akhirnya mekar menjadi keyakinan untuk melangkah bersama seumur hidup.
+          </p>
+          <p data-motion="fadeRise" style="--stagger-delay: 120ms;" class="text-[#3A272B]/90 text-sm sm:text-base leading-relaxed">
+            Kini, lembaran baru siap kami tuliskan. Kami percaya bahwa cinta sejati bukan hanya tentang saling memandang, melainkan memandang bersama ke satu arah dengan doa dan harapan yang sama.
+          </p>
+        </div>
+
+        <!-- Vertical Milestone Timeline -->
+        <div class="relative pl-6 sm:pl-10 border-l border-[#D4BA72] space-y-10 max-w-2xl mx-auto">
+          
+          <!-- Milestone 1 -->
+          <div data-motion="fadeRise" class="relative">
+            <span class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#E7B8C4] border-2 border-[#3A272B]" aria-hidden="true"></span>
+            <p class="font-eyebrow text-[11px] text-[#9A7078]">Babak Pertama • 2021</p>
+            <h3 class="font-display text-lg sm:text-xl text-[#3A272B] mt-0.5">Pertemuan Pertama</h3>
+            <p class="text-xs sm:text-sm text-[#3A272B]/85 mt-1.5 leading-relaxed">
+              Pertemuan tak terduga yang berawal dari sebuah proyek bersama, perlahan menumbuhkan rasa saling mengerti dan persahabatan yang begitu hangat.
+            </p>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div data-motion="fadeRise" style="--stagger-delay: 100ms;" class="relative">
+            <span class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#C98AA3] border-2 border-[#3A272B]" aria-hidden="true"></span>
+            <p class="font-eyebrow text-[11px] text-[#9A7078]">Babak Kedua • 2024</p>
+            <h3 class="font-display text-lg sm:text-xl text-[#3A272B] mt-0.5">Mengikat Janji &amp; Lamaran</h3>
+            <p class="text-xs sm:text-sm text-[#3A272B]/85 mt-1.5 leading-relaxed">
+              Di hadapan keluarga besar, niat tulus diungkapkan untuk menyatukan dua keluarga dalam satu ikatan janji suci pernikahan.
+            </p>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div data-motion="fadeRise" style="--stagger-delay: 200ms;" class="relative">
+            <span class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#61664C] border-2 border-[#D4BA72]" aria-hidden="true"></span>
+            <p class="font-eyebrow text-[11px] text-[#61664C]">Babak Baru • 14 Juni 2027</p>
+            <h3 class="font-display text-lg sm:text-xl text-[#3A272B] mt-0.5">Hari Bahagia Kami</h3>
+            <p class="text-xs sm:text-sm text-[#3A272B]/85 mt-1.5 leading-relaxed">
+              Bersama doa restu orang tua, sanak saudara, dan sahabat tercinta, kami memulai lembaran baru di The Grand Santika, Jakarta.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 3: LIVE COUNTDOWN (Save The Date & Calendar Integration)
+         ======================================================================== -->
+    <section id="hitung-mundur" class="scroll-mt-16 py-16 sm:py-20 px-4 sm:px-6 bg-[#F3ECE4]/60 border-y border-[#644950]/15">
+      <div class="max-w-3xl mx-auto text-center">
+
+        <p data-motion="fadeRise" class="font-eyebrow mb-2">III. SAVE THE DATE</p>
+        <h2 data-motion="fadeRise" style="--stagger-delay: 80ms;" class="font-section-heading font-normal">
+          Menghitung Hari Bahagia
+        </h2>
+        <p data-motion="fadeRise" style="--stagger-delay: 140ms;" class="text-xs sm:text-sm text-[#9A7078] mt-2">
+          Sabtu, 14 Juni 2027 • Pukul 16.00 WIB (Waktu Indonesia Barat)
+        </p>
+
+        <!-- Live Countdown Summary for Screen Readers -->
+        <p id="countdown-sr-summary" class="sr-only" aria-live="polite"></p>
+
+        <!-- Countdown Grid -->
+        <div
+          id="countdown-grid"
+          data-motion="fadeRise"
+          style="--stagger-delay: 200ms;"
+          class="mt-8 stationery-card px-4 py-8 sm:px-8 sm:py-10 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-0 sm:divide-x sm:divide-[#D4BA72]/70 shadow-sm"
+          role="timer"
+          aria-label="Hitung mundur menuju 14 Juni 2027 pukul 16.00 WIB"
+        >
+          <div class="px-2">
+            <span id="cd-days" class="font-display text-3xl sm:text-5xl text-[#3A272B] tabular-nums block leading-none">227</span>
+            <span class="font-eyebrow text-[10px] sm:text-[11px] text-[#9A7078] mt-2.5 block">Hari</span>
+          </div>
+          <div class="px-2">
+            <span id="cd-hours" class="font-display text-3xl sm:text-5xl text-[#3A272B] tabular-nums block leading-none">05</span>
+            <span class="font-eyebrow text-[10px] sm:text-[11px] text-[#9A7078] mt-2.5 block">Jam</span>
+          </div>
+          <div class="px-2">
+            <span id="cd-minutes" class="font-display text-3xl sm:text-5xl text-[#3A272B] tabular-nums block leading-none">54</span>
+            <span class="font-eyebrow text-[10px] sm:text-[11px] text-[#9A7078] mt-2.5 block">Menit</span>
+          </div>
+          <div class="px-2">
+            <span id="cd-seconds" class="font-display text-3xl sm:text-5xl text-[#C98AA3] tabular-nums block leading-none">20</span>
+            <span class="font-eyebrow text-[10px] sm:text-[11px] text-[#9A7078] mt-2.5 block">Detik</span>
+          </div>
+        </div>
+
+        <!-- Expired State Banner -->
+        <div id="countdown-expired-banner" class="hidden mt-8 stationery-card p-6 text-center">
+          <p class="font-script-accent text-3xl text-[#9A7078]">Hari Bahagia Telah Tiba</p>
+          <p class="text-sm text-[#3A272B] mt-2">
+            Terima kasih atas seluruh untaian doa dan kehadiran Bapak/Ibu/Saudara/i dalam perayaan kasih Aurelia &amp; Daniel.
+          </p>
+        </div>
+
+        <!-- Calendar Actions -->
+        <div data-motion="fadeRise" style="--stagger-delay: 280ms;" class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <!-- Download ICS Calendar -->
+          <button
+            type="button"
+            id="btn-download-ics"
+            class="inline-flex items-center gap-2 min-h-[46px] px-6 py-2.5 rounded-full bg-[#3A272B] text-[#FAF6F0] hover:bg-[#52383e] text-xs uppercase tracking-[0.16em] font-medium transition-all cursor-pointer shadow-sm"
+          >
+            <svg class="w-4 h-4 text-[#D4BA72]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span>Simpan ke Kalender (.ICS)</span>
+          </button>
+
+          <!-- Google Calendar Link -->
+          <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Aurelia+%26+Daniel&dates=20270614T090000Z/20270614T143000Z&details=Pemberkatan+(16.00+WIB)+%26+Resepsi+(18.30+WIB)+di+The+Grand+Santika,+Jakarta.&location=The+Grand+Santika,+Jakarta"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 min-h-[46px] px-5 py-2.5 rounded-full border border-[#644950]/30 bg-[#FFFDFB] hover:border-[#C98AA3] text-xs uppercase tracking-[0.16em] font-medium text-[#3A272B] transition-colors"
+          >
+            <span>Google Calendar</span>
+            <svg class="w-3.5 h-3.5 text-[#9A7078]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 4: RANGKAIAN ACARA & PANDUAN BUSANA (Wedding Events)
+         ======================================================================== -->
+    <section id="acara" class="scroll-mt-16 py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-5xl mx-auto">
+
+        <div class="text-center mb-12">
+          <p data-motion="fadeRise" class="font-eyebrow mb-2">IV. WEDDING ITINERARY</p>
+          <h2 data-motion="fadeRise" style="--stagger-delay: 80ms;" class="font-section-heading font-normal">
+            Rangkaian Acara Pernikahan
+          </h2>
+          <p data-motion="fadeRise" style="--stagger-delay: 140ms;" class="mt-2 text-xs text-[#9A7078]">
+            Sabtu, 14 Juni 2027 • The Grand Santika, Jakarta
+          </p>
+        </div>
+
+        <!-- Two Distinct Arched Event Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+
+          <!-- Event 1: Pemberkatan & Akad -->
+          <article data-motion="fadeRise" style="--stagger-delay: 0ms;" class="arch-frame px-6 sm:px-10 pt-14 pb-9 text-center flex flex-col justify-between shadow-arch">
+            <div>
+              <p class="font-eyebrow text-[11px] text-[#61664C] mb-1">BAGIAN PERTAMA</p>
+              <h3 class="font-display text-2xl sm:text-3xl text-[#3A272B] font-normal">
+                Pemberkatan &amp; Akad
+              </h3>
+              
+              <div class="my-4 flex items-center justify-center gap-2" aria-hidden="true">
+                <span class="h-[1px] w-10 bg-[#D4BA72]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#C98AA3]"></span>
+                <span class="h-[1px] w-10 bg-[#D4BA72]"></span>
+              </div>
+
+              <dl class="space-y-4 text-sm text-[#3A272B] mt-5">
+                <div>
+                  <dt class="font-eyebrow text-[10px] text-[#9A7078]">Hari &amp; Tanggal</dt>
+                  <dd class="font-display text-base sm:text-lg font-medium mt-0.5">Sabtu, 14 Juni 2027</dd>
+                </div>
+                <div>
+                  <dt class="font-eyebrow text-[10px] text-[#9A7078]">Waktu Pelaksanaan</dt>
+                  <dd class="font-medium mt-0.5 text-base">Pukul 16.00 – 17.30 WIB</dd>
+                </div>
+                <div>
+                  <dt class="font-eyebrow text-[10px] text-[#9A7078]">Tempat Acara</dt>
+                  <dd class="font-display text-base font-medium mt-0.5">Glasshouse Garden Pavilion</dd>
+                  <dd class="text-xs text-[#3A272B]/80 mt-1 max-w-xs mx-auto leading-relaxed">
+                    The Grand Santika, Jl. Hayam Wuruk No. 27, Jakarta Barat
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-eyebrow text-[10px] text-[#9A7078]">Catatan Khidmat</dt>
+                  <dd class="text-xs text-[#3A272B]/80 mt-0.5">
+                    Mohon hadir 15 menit sebelum prosesi dimulai untuk menjaga kekhidmatan acara.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="mt-8 pt-5 border-t border-[#644950]/15 flex items-center justify-center">
+              <button
+                type="button"
+                data-venue-modal-trigger="Pemberkatan & Akad — Glasshouse Garden Pavilion"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-full bg-[#E7B8C4]/35 hover:bg-[#E7B8C4]/65 text-[#3A272B] text-xs uppercase tracking-[0.14em] font-medium transition-colors cursor-pointer"
+              >
+                <svg class="w-4 h-4 text-[#3A272B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span>Lihat Peta Lokasi</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Event 2: Resepsi & Jamuan Malam -->
+          <article data-motion="fadeRise" style="--stagger-delay: 140ms;" class="arch-frame px-6 sm:px-10 pt-14 pb-9 text-center flex flex-col justify-between shadow-arch">
+            <div>
+              <p class="font-eyebrow text-[11px] text-[#9A7078] mb-1">BAGIAN KEDUA</p>
+              <h3 class="font-display text-2xl sm:text-3xl text-[#3A272B] font-normal">
+                Resepsi &amp; Jamuan Malam
+              </h3>
+
+              <div class="my-4 flex items-center justify-center gap-2" aria-hidden="true">
+                <span class="h-[1px] w-10 bg-[#D4BA72]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#61664C]"></span>
+                <span class="h-[1px] w-10 bg-[#D4BA72]"></span>
+              </div>
+
+              <dl class="space-y-4 text-sm text-[#3A272B] mt-5">
+                <div>
+                  <dt class="font-eyebrow text-[10px] text-[#9A7078]">Hari &amp; Tanggal</dt>
+                  <dd class="font-display text-base sm:text-lg font-medium mt-0.5">Sabtu, 14 Juni 2027</dd>
+                </div>
+                <div>
+                  <dt class="font-eyebrow text-[10px] text-[#9A7078]">Waktu Pelaksanaan</dt>
+                  <dd class="font-medium mt-0.5 text-base">Pukul 18.30 – 21.30 WIB</dd>
+                </div>
+                <div>
+                  <dt class="font-eyebrow text-[10px] text-[#9A7078]">Tempat Acara</dt>
+                  <dd class="font-display text-base font-medium mt-0.5">Grand Ballroom &amp; Terrace</dd>
+                  <dd class="text-xs text-[#3A272B]/80 mt-1 max-w-xs mx-auto leading-relaxed">
+                    The Grand Santika, Jl. Hayam Wuruk No. 27, Jakarta Barat
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-eyebrow text-[10px] text-[#9A7078]">Suasana Acara</dt>
+                  <dd class="text-xs text-[#3A272B]/80 mt-0.5">
+                    Jamuan makan malam taman klasik diiringi ansambel akustik.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="mt-8 pt-5 border-t border-[#644950]/15 flex items-center justify-center">
+              <button
+                type="button"
+                data-venue-modal-trigger="Resepsi & Jamuan Malam — Grand Ballroom, The Grand Santika"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-full bg-[#E7B8C4]/35 hover:bg-[#E7B8C4]/65 text-[#3A272B] text-xs uppercase tracking-[0.14em] font-medium transition-colors cursor-pointer"
+              >
+                <svg class="w-4 h-4 text-[#3A272B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span>Lihat Peta Lokasi</span>
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Dress Code Palette Card -->
+        <div data-motion="fadeRise" style="--stagger-delay: 180ms;" class="mt-12 stationery-card p-6 sm:p-9 max-w-2xl mx-auto text-center">
+          <p class="font-eyebrow text-[11px] mb-1">DRESS CODE GUIDELINE</p>
+          <h3 class="font-display text-xl sm:text-2xl text-[#3A272B] font-normal">Garden Elegance / Formal Attire</h3>
+          <p class="text-xs sm:text-sm text-[#3A272B]/80 mt-2 max-w-lg mx-auto">
+            Demi keserasian suasana, kami mengundang Bapak/Ibu/Saudara/i mengenakan busana bernuansa palet botani romantis berikut (kami memohon agar menghindari busana berwarna putih polos):
+          </p>
+          
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-7">
+            <div class="flex items-center gap-2.5">
+              <span class="w-7 h-7 rounded-full bg-[#E7B8C4] border border-[#644950]/30 shadow-inner"></span>
+              <span class="text-xs font-medium text-[#3A272B]">Dusty Pink</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-7 h-7 rounded-full bg-[#C98AA3] border border-[#644950]/30 shadow-inner"></span>
+              <span class="text-xs font-medium text-[#3A272B]">Mauve Rose</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-7 h-7 rounded-full bg-[#61664C] border border-[#644950]/30 shadow-inner"></span>
+              <span class="text-xs font-medium text-[#3A272B]">Sage Green</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-7 h-7 rounded-full bg-[#D4BA72] border border-[#644950]/30 shadow-inner"></span>
+              <span class="text-xs font-medium text-[#3A272B]">Champagne</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 5: GALERI KENANGAN & LIGHTBOX ACCESSIBLE
+         ======================================================================== -->
+    <section id="galeri" class="scroll-mt-16 py-16 sm:py-24 px-4 sm:px-6 bg-[#F3ECE4]/40 border-t border-[#644950]/15">
+      <div class="max-w-5xl mx-auto">
+
+        <div class="text-center mb-12">
+          <p data-motion="fadeRise" class="font-eyebrow mb-2">V. BOTANICAL SUITE &amp; PORTRAITS</p>
+          <h2 data-motion="fadeRise" style="--stagger-delay: 80ms;" class="font-section-heading font-normal">
+            Galeri Kenangan &amp; Inspirasi
+          </h2>
+          <p data-motion="fadeRise" style="--stagger-delay: 140ms;" class="text-xs sm:text-sm text-[#9A7078] mt-2">
+            Sentuh foto untuk memperbesar tampilan (mendukung geser layar &amp; tombol panah)
+          </p>
+        </div>
+
+        <!-- Asymmetric Editorial Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 items-start">
+
+          <!-- Photo 0: Tall Conservatory Portrait (5 cols) -->
+          <figure data-motion="softReveal" style="--stagger-delay: 0ms;" class="lg:col-span-5 stationery-card p-3">
+            <button
+              type="button"
+              data-gallery-index="0"
+              aria-label="Perbesar foto 1: Potret Aurelia dan Daniel di Konservatori Taman"
+              class="gallery-photo-wrap w-full text-left overflow-hidden block relative group cursor-pointer focus:outline-none rounded-lg"
+            >
+              <div class="aspect-[3/4] w-full overflow-hidden bg-[#F3ECE4]">
+                <img
+                  src="/assets/editorial_couple_conservatory.jpg"
+                  alt="Potret Aurelia dan Daniel berpegangan tangan di bawah tirai hijau sage dan sutra merah muda"
+                  width="756"
+                  height="1013"
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <span class="mt-2.5 flex items-center justify-between text-xs text-[#3A272B] px-1">
+                <span class="font-serif italic text-sm">I. Conservatory Vows</span>
+                <span class="text-[10px] uppercase tracking-widest text-[#9A7078] group-hover:text-[#3A272B]">Perbesar</span>
+              </span>
+            </button>
+          </figure>
+
+          <!-- Right Column: Wide Garden Table + 2 Portrait Vignettes (7 cols) -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+            <!-- Photo 1: Wide Reception Table -->
+            <figure data-motion="softReveal" style="--stagger-delay: 100ms;" class="sm:col-span-2 stationery-card p-3">
+              <button
+                type="button"
+                data-gallery-index="1"
+                aria-label="Perbesar foto 2: Tata Meja Jamuan Malam Taman Eropa"
+                class="gallery-photo-wrap w-full text-left overflow-hidden block relative group cursor-pointer focus:outline-none rounded-lg"
+              >
+                <div class="aspect-[4/3] w-full overflow-hidden bg-[#F3ECE4]">
+                  <img
+                    src="/assets/editorial_garden_table.jpg"
+                    alt="Tata meja jamuan resepsi pernikahan dengan lilin emas, bunga peony merah muda, dan kain kursi hijau sage"
+                    width="840"
+                    height="627"
+                    loading="lazy"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <span class="mt-2.5 flex items-center justify-between text-xs text-[#3A272B] px-1">
+                  <span class="font-serif italic text-sm">II. Candlelit Garden Reception</span>
+                  <span class="text-[10px] uppercase tracking-widest text-[#9A7078] group-hover:text-[#3A272B]">Perbesar</span>
+                </span>
+              </button>
+            </figure>
+
+            <!-- Photo 2: Botanical Flatlay Bouquet -->
+            <figure data-motion="fadeRise" style="--stagger-delay: 160ms;" class="stationery-card p-3">
+              <button
+                type="button"
+                data-gallery-index="2"
+                aria-label="Perbesar foto 3: Buket Peony dan Undangan Cetak"
+                class="gallery-photo-wrap w-full text-left overflow-hidden block relative group cursor-pointer focus:outline-none rounded-lg"
+              >
+                <div class="aspect-[3/4] w-full overflow-hidden bg-[#F3ECE4]">
+                  <img
+                    src="/assets/editorial_bouquet_flatlay.jpg"
+                    alt="Buket pengantin mawar merah muda dan peony dengan pita sutra di atas kertas undangan"
+                    width="756"
+                    height="1013"
+                    loading="lazy"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <span class="mt-2.5 flex items-center justify-between text-xs text-[#3A272B] px-1">
+                  <span class="font-serif italic text-sm">III. Botanical Suite</span>
+                  <span class="text-[10px] uppercase tracking-widest text-[#9A7078]">Perbesar</span>
+                </span>
+              </button>
+            </figure>
+
+            <!-- Photo 3: Silk Bow & Drapery -->
+            <figure data-motion="fadeRise" style="--stagger-delay: 220ms;" class="stationery-card p-3">
+              <button
+                type="button"
+                data-gallery-index="3"
+                aria-label="Perbesar foto 4: Detail Pita Sutra Merah Muda dan Tirai"
+                class="gallery-photo-wrap w-full text-left overflow-hidden block relative group cursor-pointer focus:outline-none rounded-lg"
+              >
+                <div class="aspect-[3/4] w-full overflow-hidden bg-[#F3ECE4]">
+                  <img
+                    src="/assets/opt_bow_drapery.jpg"
+                    alt="Komposisi pita besar merah muda dengan tirai hijau sage dan lilin hangat dari moodboard"
+                    width="221"
+                    height="334"
+                    loading="lazy"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <span class="mt-2.5 flex items-center justify-between text-xs text-[#3A272B] px-1">
+                  <span class="font-serif italic text-sm">IV. Silk &amp; Drapery</span>
+                  <span class="text-[10px] uppercase tracking-widest text-[#9A7078]">Perbesar</span>
+                </span>
+              </button>
+            </figure>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 6: PRACTICAL RSVP (Frictionless Mobile-First Experience)
+         ======================================================================== -->
+    <section id="rsvp" class="scroll-mt-16 py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-2xl mx-auto">
+
+        <div class="text-center mb-10">
+          <p data-motion="fadeRise" class="font-eyebrow mb-2">VI. CONFIRMATION OF ATTENDANCE</p>
+          <h2 data-motion="fadeRise" style="--stagger-delay: 80ms;" class="font-section-heading font-normal">
+            Reservasi Kehadiran (RSVP)
+          </h2>
+          <p data-motion="fadeRise" style="--stagger-delay: 140ms;" class="text-xs sm:text-sm text-[#3A272B]/85 mt-2">
+            Mohon konfirmasi kehadiran sebelum <strong class="font-medium text-[#3A272B]">31 Mei 2027</strong> untuk membantu kami mempersiapkan jamuan terbaik.
+          </p>
+        </div>
+
+        <!-- Main RSVP Card -->
+        <div data-motion="fadeRise" style="--stagger-delay: 120ms;" class="stationery-card p-6 sm:p-10 shadow-stationery">
+
+          <!-- Dynamic Guest Quota Plaque -->
+          <div class="mb-6 pb-4 border-b border-[#644950]/15 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <span class="text-[#9A7078] uppercase tracking-wider">Tamu: <strong id="rsvp-registered-guest" class="text-[#3A272B]">Keluarga Besar Bpk. Wijaya</strong></span>
+            <span id="rsvp-quota-pill" class="px-3 py-1 rounded-full bg-[#E7B8C4]/35 text-[#3A272B] font-medium border border-[#C98AA3]/40">
+              Kuota Maksimal: 2 Tamu
+            </span>
+          </div>
+
+          <!-- Practical RSVP Form -->
+          <form id="rsvp-form" novalidate class="space-y-6">
+
+            <!-- Guest Name -->
+            <div>
+              <label for="rsvp-name" class="block text-xs uppercase tracking-[0.14em] font-medium text-[#3A272B] mb-2">
+                Nama Lengkap Anda <span class="text-[#9E3B42]" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="rsvp-name"
+                name="guestName"
+                required
+                autocomplete="name"
+                value="Keluarga Besar Bpk. Wijaya"
+                placeholder="Masukkan nama lengkap Anda"
+                class="w-full min-h-[48px] px-4 py-2.5 bg-[#FAF6F0]/70 border border-[#644950]/30 rounded-xl text-sm text-[#3A272B] placeholder-[#9A7078]/60 focus:border-[#61664C] focus:bg-[#FFFDFB] transition-colors"
+              />
+              <p id="rsvp-name-error" class="hidden mt-1.5 text-xs text-[#9E3B42]" role="alert"></p>
+            </div>
+
+            <!-- Attendance Choice (Large Tactile 1-Click Cards) -->
+            <fieldset>
+              <legend class="block text-xs uppercase tracking-[0.14em] font-medium text-[#3A272B] mb-2.5">
+                Pilihan Kehadiran <span class="text-[#9E3B42]" aria-hidden="true">*</span>
+              </legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                
+                <!-- Option Hadir -->
+                <label id="label-attendance-hadir" class="rsvp-card-option is-selected flex items-center gap-3.5 p-3.5">
+                  <input type="radio" name="attendance" value="hadir" class="sr-only" checked />
+                  <div class="w-8 h-8 rounded-full bg-[#61664C]/15 border border-[#61664C] flex items-center justify-center text-[#61664C] shrink-0">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <div class="text-left">
+                    <p class="font-medium text-xs sm:text-sm text-[#3A272B]">Hadir dengan Sukacita</p>
+                    <p class="text-[11px] text-[#9A7078]">Siap merayakan bersama</p>
+                  </div>
+                </label>
+
+                <!-- Option Tidak Hadir -->
+                <label id="label-attendance-tidak" class="rsvp-card-option flex items-center gap-3.5 p-3.5">
+                  <input type="radio" name="attendance" value="tidak_hadir" class="sr-only" />
+                  <div class="w-8 h-8 rounded-full bg-[#3A272B]/10 border border-[#3A272B]/30 flex items-center justify-center text-[#9A7078] shrink-0">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </div>
+                  <div class="text-left">
+                    <p class="font-medium text-xs sm:text-sm text-[#3A272B]">Berhalangan Hadir</p>
+                    <p class="text-[11px] text-[#9A7078]">Kirimkan doa terbaik</p>
+                  </div>
+                </label>
+
+              </div>
+            </fieldset>
+
+            <!-- Stepper Guest Counter (Clean Practical Counter) -->
+            <div id="rsvp-pax-wrapper">
+              <label class="block text-xs uppercase tracking-[0.14em] font-medium text-[#3A272B] mb-2">
+                Jumlah Tamu yang Hadir <span class="text-[#9E3B42]" aria-hidden="true">*</span>
+              </label>
+              
+              <div class="flex items-center gap-4 bg-[#FAF6F0]/70 border border-[#644950]/30 rounded-xl p-3">
+                <button
+                  type="button"
+                  id="btn-stepper-decrement"
+                  aria-label="Kurangi jumlah tamu"
+                  class="stepper-btn"
+                >
+                  −
+                </button>
+                <div class="flex-1 text-center">
+                  <span id="rsvp-stepper-value" class="font-display text-2xl font-semibold text-[#3A272B] tabular-nums">2</span>
+                  <span class="block text-[11px] text-[#9A7078]">Orang Tamu</span>
+                </div>
+                <button
+                  type="button"
+                  id="btn-stepper-increment"
+                  aria-label="Tambah jumlah tamu"
+                  class="stepper-btn"
+                >
+                  +
+                </button>
+              </div>
+              <input type="hidden" id="rsvp-pax-input" name="pax" value="2" />
+              <p id="rsvp-pax-hint" class="mt-1.5 text-[11px] text-[#9A7078]">
+                Jumlah tamu dibatasi sesuai kuota undangan personal Anda (maksimal 2 orang).
+              </p>
+            </div>
+
+            <!-- Dietary Notes -->
+            <div id="rsvp-dietary-wrapper">
+              <label for="rsvp-dietary" class="block text-xs uppercase tracking-[0.14em] font-medium text-[#3A272B] mb-2">
+                Catatan Alergi / Preferensi Diet <span class="text-[#9A7078] font-normal lowercase">(opsional)</span>
+              </label>
+              <input
+                type="text"
+                id="rsvp-dietary"
+                name="dietary"
+                placeholder="Contoh: Vegetarian, alergi seafood / kacang"
+                class="w-full min-h-[46px] px-4 py-2.5 bg-[#FAF6F0]/70 border border-[#644950]/30 rounded-xl text-sm text-[#3A272B] placeholder-[#9A7078]/60 focus:border-[#61664C] focus:bg-[#FFFDFB] transition-colors"
+              />
+            </div>
+
+            <!-- Personal Message for Bride & Groom -->
+            <div>
+              <label for="rsvp-note" class="block text-xs uppercase tracking-[0.14em] font-medium text-[#3A272B] mb-2">
+                Pesan Khusus untuk Mempelai <span class="text-[#9A7078] font-normal lowercase">(opsional)</span>
+              </label>
+              <textarea
+                id="rsvp-note"
+                name="note"
+                rows="3"
+                placeholder="Tuliskan pesan atau doa untuk Aurelia &amp; Daniel..."
+                class="w-full px-4 py-2.5 bg-[#FAF6F0]/70 border border-[#644950]/30 rounded-xl text-sm text-[#3A272B] placeholder-[#9A7078]/60 focus:border-[#61664C] focus:bg-[#FFFDFB] transition-colors"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <button
+                type="submit"
+                id="btn-submit-rsvp"
+                class="w-full min-h-[50px] px-6 py-3.5 rounded-full bg-[#3A272B] hover:bg-[#52383e] disabled:opacity-60 text-[#FAF6F0] text-xs uppercase tracking-[0.2em] font-medium transition-all cursor-pointer flex items-center justify-center gap-2 shadow-md active:scale-[0.99]"
+              >
+                <span id="rsvp-submit-label">Kirim Konfirmasi RSVP</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Accessible RSVP Confirmation Panel (Shown after submit) -->
+          <div id="rsvp-confirmation-panel" class="hidden py-6 text-center space-y-5" role="status" aria-live="polite">
+            <div class="w-14 h-14 rounded-full bg-[#61664C]/15 border border-[#61664C] text-[#61664C] mx-auto flex items-center justify-center">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            
+            <div>
+              <h3 class="font-display text-2xl sm:text-3xl text-[#3A272B] font-normal">
+                Konfirmasi Telah Tercatat
+              </h3>
+              <p id="rsvp-confirmation-summary" class="text-sm text-[#3A272B]/85 max-w-md mx-auto leading-relaxed mt-2"></p>
+            </div>
+
+            <!-- Post-RSVP Action Buttons -->
+            <div class="pt-3 flex flex-wrap items-center justify-center gap-3">
+              <!-- WhatsApp Share Confirmation -->
+              <a
+                id="btn-rsvp-whatsapp"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-full bg-[#25D366] text-white text-xs uppercase tracking-wider font-medium shadow-sm hover:brightness-105"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.071.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
+                <span>Kirim via WhatsApp</span>
+              </a>
+
+              <!-- Edit RSVP Button -->
+              <button
+                type="button"
+                id="btn-edit-rsvp"
+                class="inline-flex items-center justify-center min-h-[44px] px-5 py-2.5 rounded-full border border-[#644950]/30 text-xs uppercase tracking-[0.15em] text-[#3A272B] hover:bg-[#E7B8C4]/30 transition-colors cursor-pointer"
+              >
+                Ubah Konfirmasi
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 7: BUKU TAMU DIGITAL & UNTAIAN DOA (Guestbook)
+         ======================================================================== -->
+    <section id="ucapan" class="scroll-mt-16 py-16 sm:py-24 px-4 sm:px-6 bg-[#F3ECE4]/45 border-y border-[#644950]/15">
+      <div class="max-w-3xl mx-auto">
+
+        <div class="text-center mb-10">
+          <p data-motion="fadeRise" class="font-eyebrow mb-2">VII. WEDDING WISHES</p>
+          <h2 data-motion="fadeRise" style="--stagger-delay: 80ms;" class="font-section-heading font-normal">
+            Buku Tamu &amp; Untaian Doa
+          </h2>
+          <p data-motion="fadeRise" style="--stagger-delay: 140ms;" class="text-xs sm:text-sm text-[#9A7078] mt-2">
+            Tinggalkan doa restu dan harapan terbaik untuk lembaran baru Aurelia &amp; Daniel
+          </p>
+        </div>
+
+        <!-- Guestbook Form Card -->
+        <div data-motion="fadeRise" class="stationery-card p-6 sm:p-9 mb-10 shadow-sm">
+          <form id="guestbook-form" novalidate class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="gb-name" class="block text-xs uppercase tracking-[0.14em] font-medium text-[#3A272B] mb-1.5">
+                  Nama Anda <span class="text-[#9E3B42]" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="gb-name"
+                  required
+                  placeholder="Contoh: Nadya &amp; Keluarga"
+                  class="w-full min-h-[46px] px-4 py-2 bg-[#FAF6F0]/70 border border-[#644950]/30 rounded-xl text-sm text-[#3A272B] placeholder-[#9A7078]/60 focus:border-[#61664C] focus:bg-[#FFFDFB]"
+                />
+                <p id="gb-name-error" class="hidden mt-1 text-xs text-[#9E3B42]" role="alert"></p>
+              </div>
+              <div>
+                <label for="gb-relation" class="block text-xs uppercase tracking-[0.14em] font-medium text-[#3A272B] mb-1.5">
+                  Hubungan / Kerabat <span class="text-[#9A7078] font-normal lowercase">(opsional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="gb-relation"
+                  placeholder="Contoh: Sahabat / Kerabat"
+                  class="w-full min-h-[46px] px-4 py-2 bg-[#FAF6F0]/70 border border-[#644950]/30 rounded-xl text-sm text-[#3A272B] placeholder-[#9A7078]/60 focus:border-[#61664C] focus:bg-[#FFFDFB]"
+                />
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="gb-message" class="block text-xs uppercase tracking-[0.14em] font-medium text-[#3A272B]">
+                  Untaian Doa &amp; Ucapan <span class="text-[#9E3B42]" aria-hidden="true">*</span>
+                </label>
+                <span id="gb-char-count" class="text-[11px] text-[#9A7078]">0 / 280</span>
+              </div>
+              <textarea
+                id="gb-message"
+                rows="3"
+                maxlength="280"
+                required
+                placeholder="Tuliskan ucapan dan doa hangat Anda untuk kedua mempelai..."
+                class="w-full px-4 py-2.5 bg-[#FAF6F0]/70 border border-[#644950]/30 rounded-xl text-sm text-[#3A272B] placeholder-[#9A7078]/60 focus:border-[#61664C] focus:bg-[#FFFDFB]"
+              ></textarea>
+              <p id="gb-message-error" class="hidden mt-1 text-xs text-[#9E3B42]" role="alert"></p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <span class="text-[11px] text-[#61664C]">
+                Doa Anda akan tampil langsung di buku tamu digital ini.
+              </span>
+              <button
+                type="submit"
+                id="btn-submit-guestbook"
+                class="min-h-[46px] px-7 py-2.5 rounded-full bg-[#C98AA3] hover:bg-[#b5768f] text-[#FFFDFB] text-xs uppercase tracking-[0.16em] font-medium transition-colors cursor-pointer shadow-sm"
+              >
+                Kirim Ucapan
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Guestbook Messages Stream -->
+        <div class="space-y-4" id="guestbook-list" aria-live="polite">
+          <!-- Dynamically populated via invitation.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 8: TANDA KASIH & AMPLOP DIGITAL (Wedding Gift)
+         ======================================================================== -->
+    <section id="tanda-kasih" class="scroll-mt-16 py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto text-center">
+
+        <p data-motion="fadeRise" class="font-eyebrow mb-2">VIII. WEDDING GIFT</p>
+        <h2 data-motion="fadeRise" style="--stagger-delay: 80ms;" class="font-section-heading font-normal">
+          Tanda Kasih &amp; Amplop Digital
+        </h2>
+        <p data-motion="fadeRise" style="--stagger-delay: 140ms;" class="text-xs sm:text-sm text-[#3A272B]/85 mt-2 max-w-xl mx-auto leading-relaxed">
+          Doa restu dan kehadiran Bapak/Ibu/Saudara/i merupakan karunia terindah bagi kami. Namun apabila berkenan memberikan tanda kasih secara digital, informasi rekening berikut disediakan sebagai kemudahan:
+        </p>
+
+        <!-- Wax Envelope Graphic -->
+        <div data-motion="fadeRise" style="--stagger-delay: 180ms;" class="my-8 flex flex-col items-center justify-center">
+          <div class="relative w-24 h-24 rounded-full p-1.5 border border-[#D4BA72] bg-[#FFFDFB] shadow-sm overflow-hidden">
+            <img
+              src="/assets/opt_wax_envelope.jpg"
+              alt="Ilustrasi amplop merah muda dengan segel lilin bermotif pita"
+              width="162"
+              height="187"
+              loading="lazy"
+              class="w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <span class="mt-2.5 text-[11px] uppercase tracking-[0.16em] text-[#9A7078]">
+            Rekening Resmi Mempelai
+          </span>
+        </div>
+
+        <!-- Bank Account Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+
+          <!-- Bank 1: BCA -->
+          <div data-motion="fadeRise" style="--stagger-delay: 200ms;" class="stationery-card p-6 sm:p-7 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex items-center justify-between border-b border-[#644950]/15 pb-3 mb-4">
+                <span class="font-display text-lg text-[#3A272B] font-medium">Bank Central Asia (BCA)</span>
+                <span class="text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-[#E7B8C4]/35 text-[#3A272B] font-medium">Mempelai</span>
+              </div>
+              <p class="text-[11px] uppercase tracking-[0.14em] text-[#9A7078]">Nomor Rekening</p>
+              <p id="acc-num-1" class="font-display text-xl sm:text-2xl tracking-wider text-[#3A272B] mt-1 tabular-nums font-semibold">
+                8730 1928 44
+              </p>
+              <p class="text-xs text-[#3A272B]/85 mt-2">
+                a.n. <strong class="font-medium text-[#3A272B]">Aurelia Larasati</strong>
+              </p>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-[#644950]/10">
+              <button
+                type="button"
+                data-copy-value="8730192844"
+                data-copy-label="Nomor rekening BCA"
+                class="btn-copy-account w-full min-h-[46px] px-4 py-2.5 rounded-full border border-[#C98AA3] bg-[#E7B8C4]/25 hover:bg-[#E7B8C4]/50 text-[#3A272B] text-xs uppercase tracking-[0.16em] font-medium transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+              >
+                <svg class="w-4 h-4 text-[#3A272B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                </svg>
+                <span class="copy-btn-text">Salin Nomor Rekening</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Bank 2: Mandiri -->
+          <div data-motion="fadeRise" style="--stagger-delay: 280ms;" class="stationery-card p-6 sm:p-7 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex items-center justify-between border-b border-[#644950]/15 pb-3 mb-4">
+                <span class="font-display text-lg text-[#3A272B] font-medium">Bank Mandiri</span>
+                <span class="text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-[#E7B8C4]/35 text-[#3A272B] font-medium">Mempelai</span>
+              </div>
+              <p class="text-[11px] uppercase tracking-[0.14em] text-[#9A7078]">Nomor Rekening</p>
+              <p id="acc-num-2" class="font-display text-xl sm:text-2xl tracking-wider text-[#3A272B] mt-1 tabular-nums font-semibold">
+                1370 0182 9921
+              </p>
+              <p class="text-xs text-[#3A272B]/85 mt-2">
+                a.n. <strong class="font-medium text-[#3A272B]">Daniel Pratama</strong>
+              </p>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-[#644950]/10">
+              <button
+                type="button"
+                data-copy-value="137001829921"
+                data-copy-label="Nomor rekening Mandiri"
+                class="btn-copy-account w-full min-h-[46px] px-4 py-2.5 rounded-full border border-[#C98AA3] bg-[#E7B8C4]/25 hover:bg-[#E7B8C4]/50 text-[#3A272B] text-xs uppercase tracking-[0.16em] font-medium transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+              >
+                <svg class="w-4 h-4 text-[#3A272B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                </svg>
+                <span class="copy-btn-text">Salin Nomor Rekening</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 9: CLOSING FOOTER (Couture Letterpress Signoff)
+         ======================================================================== -->
+    <footer id="penutup" class="relative pt-16 pb-24 sm:py-24 px-4 sm:px-6 bg-[#F3ECE4]/70 border-t border-[#D4BA72]/60 overflow-hidden text-center">
+      <div class="max-w-xl mx-auto relative z-10">
+
+        <!-- Monogram Seal Crest -->
+        <div data-motion="fadeRise" class="w-20 h-20 mx-auto mb-6 rounded-full border border-[#D4BA72] bg-[#FFFDFB] flex flex-col items-center justify-center relative shadow-sm">
+          <span class="font-display text-lg tracking-widest text-[#3A272B]">A <span class="text-[#D4BA72]">/</span> D</span>
+        </div>
+
+        <p data-motion="fadeRise" style="--stagger-delay: 80ms;" class="text-sm sm:text-base text-[#3A272B]/90 leading-relaxed font-serif italic">
+          Merupakan suatu kehormatan dan kebahagiaan yang tiada tara bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu bagi langkah awal keluarga kecil kami.
+        </p>
+
+        <p data-motion="fadeRise" style="--stagger-delay: 140ms;" class="font-script-accent text-3xl sm:text-4xl text-[#9A7078] mt-6">
+          Kami yang berbahagia,
+        </p>
+
+        <h2 data-motion="fadeRise" style="--stagger-delay: 200ms;" class="font-display text-3xl sm:text-4xl text-[#3A272B] font-normal tracking-wider mt-1 uppercase">
+          Aurelia &amp; Daniel
+        </h2>
+
+        <p data-motion="fadeRise" style="--stagger-delay: 240ms;" class="font-eyebrow text-xs text-[#9A7078] mt-2">
+          14 . 06 . 2027 • JAKARTA
+        </p>
+
+        <!-- Flourish Line Drawing -->
+        <div data-motion="fadeRise" style="--stagger-delay: 280ms;" class="my-7 flex justify-center" aria-hidden="true">
+          <svg class="w-48 h-7 text-[#D4BA72]" viewBox="0 0 240 32" fill="none">
+            <path class="ornament-path" d="M10 16 H95 M145 16 H230" stroke="#D4BA72" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M120 6 C112 6, 108 12, 120 22 C132 12, 128 6, 120 6 Z" fill="#C98AA3" opacity="0.8"/>
+          </svg>
+        </div>
+
+        <!-- Floral Cutout Accent -->
+        <img
+          src="/assets/floral_cluster_cutout.webp"
+          alt=""
+          width="180"
+          height="176"
+          loading="lazy"
+          aria-hidden="true"
+          class="w-28 mx-auto opacity-85 mb-6"
+        />
+
+        <p class="text-[11px] text-[#9A7078] tracking-wider">
+          Soft Romance in Bloom • Bespoke Romantic Botanical Editorial Stationery
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ==========================================================================
+       ACCESSIBLE LIGHTBOX MODAL
+       ========================================================================== -->
+  <div
+    id="lightbox-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Penampil Foto Galeri"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-[#3A272B]/90 backdrop-blur-md p-4 sm:p-6"
+  >
+    <div class="relative w-full max-w-3xl mx-auto flex flex-col items-center">
+      <!-- Controls -->
+      <div class="w-full flex items-center justify-between text-[#FAF6F0] mb-3">
+        <span id="lightbox-counter" class="text-xs uppercase tracking-[0.2em] text-[#E7B8C4]">1 / 4</span>
+        <button
+          type="button"
+          id="btn-close-lightbox"
+          aria-label="Tutup foto (Escape)"
+          class="min-w-[44px] min-h-[44px] px-3.5 rounded-full bg-[#FFFDFB]/15 hover:bg-[#FFFDFB]/30 text-[#FAF6F0] text-xs uppercase tracking-widest flex items-center gap-1.5 transition-colors cursor-pointer"
+        >
+          <span>Tutup</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Image Canvas -->
+      <div class="relative w-full bg-[#FFFDFB] p-2.5 sm:p-3.5 rounded-xl border border-[#D4BA72] shadow-2xl flex items-center justify-center max-h-[74vh] overflow-hidden">
+        <img
+          id="lightbox-image"
+          src="/assets/editorial_couple_conservatory.jpg"
+          alt=""
+          class="max-h-[68vh] w-auto max-w-full object-contain rounded transition-transform duration-200"
+        />
+      </div>
+
+      <!-- Caption & Controls -->
+      <div class="w-full mt-4 flex items-center justify-between gap-4">
+        <button
+          type="button"
+          id="btn-lightbox-prev"
+          aria-label="Foto sebelumnya"
+          class="min-w-[44px] min-h-[44px] px-4 rounded-full bg-[#FFFDFB]/15 hover:bg-[#FFFDFB]/30 text-[#FAF6F0] text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          <span class="hidden sm:inline">Sebelumnya</span>
+        </button>
+
+        <p id="lightbox-caption" class="text-xs sm:text-sm text-[#FAF6F0] font-serif italic text-center flex-1"></p>
+
+        <button
+          type="button"
+          id="btn-lightbox-next"
+          aria-label="Foto berikutnya"
+          class="min-w-[44px] min-h-[44px] px-4 rounded-full bg-[#FFFDFB]/15 hover:bg-[#FFFDFB]/30 text-[#FAF6F0] text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer"
+        >
+          <span class="hidden sm:inline">Berikutnya</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       VENUE MAP MODAL
+       ========================================================================== -->
+  <div
+    id="venue-map-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="venue-modal-title"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-[#3A272B]/80 backdrop-blur-sm p-4"
+  >
+    <div class="stationery-card max-w-lg w-full p-6 sm:p-8 text-left shadow-2xl">
+      <div class="flex items-start justify-between gap-4 border-b border-[#644950]/15 pb-3 mb-4">
+        <div>
+          <p class="font-eyebrow text-[10px]">PETUNJUK LOKASI ACARA</p>
+          <h3 id="venue-modal-title" class="font-display text-xl text-[#3A272B] font-normal mt-0.5">
+            The Grand Santika, Jakarta
+          </h3>
+        </div>
+        <button
+          type="button"
+          id="btn-close-venue-modal"
+          aria-label="Tutup dialog lokasi"
+          class="min-w-[44px] min-h-[44px] rounded-full hover:bg-[#E7B8C4]/30 flex items-center justify-center text-[#3A272B] cursor-pointer"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <p id="venue-modal-subtitle" class="text-xs font-medium text-[#61664C] mb-3"></p>
+
+      <!-- Map Graphic -->
+      <div class="bg-[#FAF6F0] border border-[#D4BA72] rounded-xl p-4 mb-4">
+        <svg class="w-full h-36" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="400" height="140" fill="#FAF6F0"/>
+          <path d="M0 40 H400 M0 95 H400 M110 0 V140 M270 0 V140" stroke="#E7B8C4" stroke-width="6" opacity="0.45"/>
+          <path d="M20 115 Q160 70 380 30" stroke="#61664C" stroke-width="2.5" stroke-dasharray="5 5"/>
+          <circle cx="230" cy="62" r="14" fill="#C98AA3" opacity="0.25"/>
+          <circle cx="230" cy="62" r="6" fill="#3A272B" stroke="#D4BA72" stroke-width="2"/>
+          <text x="244" y="66" fill="#3A272B" font-family="Playfair Display, serif" font-size="12" font-weight="600">The Grand Santika, Jakarta</text>
+        </svg>
+        <p class="text-[11px] text-[#9A7078] mt-2 leading-relaxed">
+          Alamat: Jl. Hayam Wuruk No. 27, Jakarta Barat. Tersedia area parkir luas dan fasilitas valet.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-end gap-3">
+        <button
+          type="button"
+          id="btn-cancel-venue-modal"
+          class="min-h-[44px] px-5 py-2 rounded-full border border-[#644950]/30 text-xs uppercase tracking-wider text-[#3A272B] cursor-pointer"
+        >
+          Tutup
+        </button>
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Hotel+Santika+Premiere+Jakarta"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 min-h-[44px] px-6 py-2.5 rounded-full bg-[#3A272B] text-[#FAF6F0] text-xs uppercase tracking-wider font-medium hover:bg-[#52383e]"
+        >
+          <span>Buka di Google Maps</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SETUP & DOCUMENTATION MODAL
+       ========================================================================== -->
+  <div
+    id="moodboard-config-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="config-modal-title"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-[#3A272B]/80 backdrop-blur-sm p-4 overflow-y-auto"
+  >
+    <div class="stationery-card max-w-3xl w-full p-6 sm:p-8 text-left max-h-[88vh] overflow-y-auto my-auto shadow-2xl">
+      <div class="flex items-start justify-between gap-4 border-b border-[#644950]/20 pb-3 mb-5">
+        <div>
+          <p class="font-eyebrow text-[10px]">DOKUMENTASI DESAIN &amp; ARSITEKTUR</p>
+          <h3 id="config-modal-title" class="font-display text-xl sm:text-2xl text-[#3A272B] font-normal">
+            Panduan Desain Romantic Editorial &amp; Botanical
+          </h3>
+        </div>
+        <button
+          type="button"
+          id="btn-close-config-modal"
+          aria-label="Tutup panduan"
+          class="min-w-[44px] min-h-[44px] rounded-full hover:bg-[#E7B8C4]/30 flex items-center justify-center text-[#3A272B] cursor-pointer"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-xs sm:text-sm text-[#3A272B]/90">
+        <!-- Moodboard Reference -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-[#FAF6F0] p-4 rounded-xl border border-[#D4BA72]">
+          <div class="sm:col-span-5">
+            <img
+              src="/assets/opt_moodboard_ref.jpg"
+              alt="Moodboard Referensi Soft Romance in Bloom"
+              width="360"
+              height="384"
+              loading="lazy"
+              class="w-full h-auto rounded-lg border border-[#644950]/20"
+            />
+          </div>
+          <div class="sm:col-span-7 space-y-2">
+            <h4 class="font-display text-base font-medium text-[#3A272B]">1. Visual Moodboard &amp; Art Direction</h4>
+            <p class="text-xs leading-relaxed">
+              Menerapkan gaya <em>Romantic Editorial</em> dengan palet botani: Dusty Pink (`#E7B8C4`), Mauve Rose (`#C98AA3`), Sage Green (`#61664C`), Antique Gold (`#D4BA72`), dan Letterpress Ink (`#3A272B`).
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-display text-base font-medium text-[#3A272B] mb-1">2. Konfigurasi Konten</h4>
+          <p class="text-xs leading-relaxed">
+            Data pasangan, tanggal, dan rekening dapat disesuaikan pada berkas <code class="bg-[#FAF6F0] px-1.5 py-0.5 rounded border border-[#644950]/20">src/config/weddingConfig.ts</code>.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-[#644950]/15 text-right">
+        <button
+          type="button"
+          id="btn-close-config-modal-bottom"
+          class="min-h-[44px] px-6 py-2 rounded-full bg-[#3A272B] text-[#FAF6F0] text-xs uppercase tracking-widest cursor-pointer"
+        >
+          Tutup Panduan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ACCESSIBLE TOAST NOTIFICATION
+       ========================================================================== -->
+  <div
+    id="toast-notification"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-20 md:bottom-6 right-4 z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-200 bg-[#3A272B] text-[#FAF6F0] border border-[#D4BA72] px-4 py-3 rounded-xl shadow-xl text-xs flex items-center gap-2.5"
+  >
+    <span class="w-2 h-2 rounded-full bg-[#D4BA72]"></span>
+    <span id="toast-message">Nomor rekening berhasil disalin.</span>
+  </div>
