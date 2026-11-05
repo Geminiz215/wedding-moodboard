@@ -17,7 +17,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: '#FAF6F0',
+  themeColor: '#F7EEE8',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body
-        className="paper-surface cover-locked selection:bg-[#E7B8C4]/50 selection:text-[#3A272B] min-h-screen"
+        className="paper-surface cover-locked selection:bg-[#E7B8C4]/50 selection:text-[#493237] min-h-screen"
         suppressHydrationWarning
       >
         {children}

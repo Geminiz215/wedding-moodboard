@@ -1,26 +1,31 @@
 :root {
   /* ==========================================================================
-     ROMANTIC EDITORIAL & BOTANICAL DESIGN TOKENS
+     SOFT ROMANCE IN BLOOM — OFFICIAL MOODBOARD DESIGN TOKENS
      ========================================================================== */
   --color-dusty-pink: #E7B8C4;
   --color-dusty-pink-soft: rgba(231, 184, 196, 0.28);
   --color-dusty-pink-subtle: rgba(231, 184, 196, 0.14);
   --color-mauve: #C98AA3;
   --color-mauve-deep: #A8647F;
-  --color-sage: #61664C;
-  --color-sage-soft: rgba(97, 102, 76, 0.12);
-  --color-sage-deep: #464A35;
-  --color-ivory: #FAF6F0;
-  --color-ivory-elevated: #FFFDFB;
-  --color-ivory-warm: #F3ECE4;
-  --color-gold: #D4BA72;
-  --color-gold-muted: rgba(212, 186, 114, 0.45);
-  --color-gold-glow: rgba(212, 186, 114, 0.25);
-  --color-ink: #3A272B;
-  --color-ink-muted: #644950;
+  --color-sage: #6B6F52;
+  --color-sage-soft: rgba(107, 111, 82, 0.14);
+  --color-sage-deep: #4A4E38;
+  --color-ivory: #F7EEE8;
+  --color-soft-white: #FFF9F5;
+  --color-ivory-elevated: #FFF9F5;
+  --color-ivory-warm: #F1E4DC;
+  --color-champagne-gold: #D8C37B;
+  --color-gold: #D8C37B;
+  --color-gold-muted: rgba(216, 195, 123, 0.48);
+  --color-gold-glow: rgba(216, 195, 123, 0.25);
+  --color-burgundy: #784653;
+  --color-warm-ink: #493237;
+  --color-ink: #493237;
+  --color-ink-muted: #784653;
   --color-muted-rose: #9A7078;
-  --color-border: rgba(100, 73, 80, 0.18);
-  --color-border-gold: rgba(212, 186, 114, 0.45);
+  --color-soft-border: rgba(112, 76, 79, 0.22);
+  --color-border: rgba(120, 70, 83, 0.2);
+  --color-border-gold: rgba(216, 195, 123, 0.55);
   --color-error: #9E3B42;
   --color-success: #4A6342;
 
@@ -31,10 +36,10 @@
   --font-script: 'Allura', cursive;
 
   /* Fluid Scales */
-  --text-couple-cover: clamp(2.4rem, 6.2vw, 4.4rem);
-  --text-couple-hero: clamp(2.3rem, 5.2vw, 4.1rem);
+  --text-couple-cover: clamp(2.35rem, 6vw, 4.25rem);
+  --text-couple-hero: clamp(2.25rem, 5.2vw, 4rem);
   --text-section-title: clamp(1.85rem, 3.8vw, 2.85rem);
-  --text-script-accent: clamp(2.1rem, 4.4vw, 3.2rem);
+  --text-script-accent: clamp(2.1rem, 4.4vw, 3.25rem);
   --text-body: clamp(0.9375rem, 1.05vw, 1.05rem);
   --text-eyebrow: clamp(0.68rem, 0.85vw, 0.78rem);
 
@@ -46,6 +51,6 @@
   --dur-micro: 180ms;
   --dur-entrance: 520ms;
   --dur-image: 720ms;
-  --dur-cover: 920ms;
-  --dur-curtain: 1150ms;
+  --dur-cover: 850ms;
+  --dur-curtain: 950ms;
 }

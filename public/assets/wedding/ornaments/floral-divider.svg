@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 40" fill="none">
+  <defs>
+    <linearGradient id="goldDiv" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D8C37B" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#D8C37B" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#F2DD9D" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#D8C37B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#D8C37B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Horizontal Hairlines -->
+  <line x1="10" y1="20" x2="115" y2="20" stroke="url(#goldDiv)" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="205" y1="20" x2="310" y2="20" stroke="url(#goldDiv)" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- Left Vine & Leaf Sprigs -->
+  <path d="M115,20 C128,14 136,12 144,20 C138,22 130,24 122,20 Z" fill="#6B6F52" opacity="0.85"/>
+  <path d="M126,17 C130,10 138,8 142,12 C138,15 132,16 126,17 Z" fill="#6B6F52" opacity="0.75"/>
+  <circle cx="118" cy="20" r="2" fill="#D8C37B"/>
+
+  <!-- Right Vine & Leaf Sprigs -->
+  <path d="M205,20 C192,14 184,12 176,20 C182,22 190,24 198,20 Z" fill="#6B6F52" opacity="0.85"/>
+  <path d="M194,17 C190,10 182,8 178,12 C182,15 188,16 194,17 Z" fill="#6B6F52" opacity="0.75"/>
+  <circle cx="202" cy="20" r="2" fill="#D8C37B"/>
+
+  <!-- Center Blooming Rose Bud / Ribbon Knot -->
+  <g transform="translate(160, 20)">
+    <!-- Peony / Rose Bud Petals -->
+    <path d="M0,-10 C-8,-6 -10,4 0,9 C10,4 8,-6 0,-10 Z" fill="#C98AA3" stroke="#D8C37B" stroke-width="1"/>
+    <path d="M0,-7 C-5,-4 -6,3 0,6 C6,3 5,-4 0,-7 Z" fill="#E7B8C4"/>
+    <circle cx="0" cy="0" r="3" fill="#FAF6F0"/>
+    <!-- Small flanking gold accent pearls -->
+    <circle cx="-11" cy="0" r="1.8" fill="#D8C37B"/>
+    <circle cx="11" cy="0" r="1.8" fill="#D8C37B"/>
+  </g>
+</svg>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ROMANTIC EDITORIAL & BOTANICAL DESIGN TOKENS
+   SOFT ROMANCE IN BLOOM — OFFICIAL MOODBOARD DESIGN TOKENS
    ========================================================================== */
 :root {
   --color-dusty-pink: #E7B8C4;
@@ -7,20 +7,25 @@
   --color-dusty-pink-subtle: rgba(231, 184, 196, 0.14);
   --color-mauve: #C98AA3;
   --color-mauve-deep: #A8647F;
-  --color-sage: #61664C;
-  --color-sage-soft: rgba(97, 102, 76, 0.12);
-  --color-sage-deep: #464A35;
-  --color-ivory: #FAF6F0;
-  --color-ivory-elevated: #FFFDFB;
-  --color-ivory-warm: #F3ECE4;
-  --color-gold: #D4BA72;
-  --color-gold-muted: rgba(212, 186, 114, 0.45);
-  --color-gold-glow: rgba(212, 186, 114, 0.25);
-  --color-ink: #3A272B;
-  --color-ink-muted: #644950;
+  --color-sage: #6B6F52;
+  --color-sage-soft: rgba(107, 111, 82, 0.14);
+  --color-sage-deep: #4A4E38;
+  --color-ivory: #F7EEE8;
+  --color-soft-white: #FFF9F5;
+  --color-ivory-elevated: #FFF9F5;
+  --color-ivory-warm: #F1E4DC;
+  --color-champagne-gold: #D8C37B;
+  --color-gold: #D8C37B;
+  --color-gold-muted: rgba(216, 195, 123, 0.48);
+  --color-gold-glow: rgba(216, 195, 123, 0.25);
+  --color-burgundy: #784653;
+  --color-warm-ink: #493237;
+  --color-ink: #493237;
+  --color-ink-muted: #784653;
   --color-muted-rose: #9A7078;
-  --color-border: rgba(100, 73, 80, 0.18);
-  --color-border-gold: rgba(212, 186, 114, 0.45);
+  --color-soft-border: rgba(112, 76, 79, 0.22);
+  --color-border: rgba(120, 70, 83, 0.2);
+  --color-border-gold: rgba(216, 195, 123, 0.58);
   --color-error: #9E3B42;
   --color-success: #4A6342;
 
@@ -31,10 +36,10 @@
   --font-script: 'Allura', cursive;
 
   /* Fluid Scales */
-  --text-couple-cover: clamp(2.4rem, 6.2vw, 4.4rem);
-  --text-couple-hero: clamp(2.3rem, 5.2vw, 4.1rem);
+  --text-couple-cover: clamp(2.35rem, 6vw, 4.25rem);
+  --text-couple-hero: clamp(2.25rem, 5.2vw, 4rem);
   --text-section-title: clamp(1.85rem, 3.8vw, 2.85rem);
-  --text-script-accent: clamp(2.1rem, 4.4vw, 3.2rem);
+  --text-script-accent: clamp(2.1rem, 4.4vw, 3.25rem);
   --text-body: clamp(0.9375rem, 1.05vw, 1.05rem);
   --text-eyebrow: clamp(0.68rem, 0.85vw, 0.78rem);
 
@@ -46,8 +51,8 @@
   --dur-micro: 180ms;
   --dur-entrance: 520ms;
   --dur-image: 720ms;
-  --dur-cover: 800ms;
-  --dur-curtain: 800ms;
+  --dur-cover: 850ms;
+  --dur-curtain: 950ms;
 }
 
 /* ==========================================================================
@@ -93,51 +98,85 @@ body.cover-locked {
 .paper-surface {
   background-color: var(--color-ivory);
   background-image:
-    radial-gradient(ellipse at 50% -5%, rgba(231, 184, 196, 0.28) 0%, transparent 65%),
-    radial-gradient(ellipse at 8% 85%, rgba(97, 102, 76, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse at 92% 50%, rgba(212, 186, 114, 0.12) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.024'/%3E%3C/svg%3E");
+    radial-gradient(ellipse at 50% -5%, rgba(231, 184, 196, 0.32) 0%, transparent 65%),
+    radial-gradient(ellipse at 8% 85%, rgba(107, 111, 82, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 92% 50%, rgba(216, 195, 123, 0.14) 0%, transparent 50%),
+    url('/assets/wedding/backgrounds/ivory-paper.jpg');
+  background-size: cover, cover, cover, 600px 800px;
 }
 
-/* Refined Stationery Deckled Border Card */
+.pink-paper-surface {
+  background-color: #F3DCE2;
+  background-image:
+    radial-gradient(ellipse at 50% 20%, rgba(255, 249, 245, 0.55) 0%, transparent 70%),
+    url('/assets/wedding/backgrounds/pink-paper-texture.jpg');
+  background-size: cover, 600px 800px;
+}
+
+/* ==========================================================================
+   MOODBOARD STATIONERY CARD & ARCH FRAMES
+   ========================================================================== */
 .stationery-card {
-  background-color: var(--color-ivory-elevated);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-soft-white);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(231, 184, 196, 0.16) 0%, transparent 65%),
+    url('/assets/wedding/backgrounds/ivory-paper.jpg');
+  background-size: cover, 500px 700px;
+  border: 1.5px solid var(--color-gold);
   position: relative;
   box-shadow:
-    0 4px 20px -8px rgba(58, 39, 43, 0.08),
-    0 12px 36px -16px rgba(58, 39, 43, 0.05);
-  border-radius: 16px;
+    0 8px 28px -10px rgba(73, 50, 55, 0.1),
+    0 18px 42px -18px rgba(73, 50, 55, 0.06);
+  border-radius: 22px;
   transition: transform var(--dur-micro) var(--ease-editorial), box-shadow var(--dur-micro) var(--ease-editorial);
 }
 
 .stationery-card::before {
   content: "";
   position: absolute;
-  inset: 6px;
+  inset: 7px;
   border: 1px solid var(--color-border-gold);
-  border-radius: 12px;
+  border-radius: 16px;
   pointer-events: none;
+  z-index: 1;
 }
 
-/* Architectural Botanical Arch Frame */
+/* Classical Moodboard Arch Frame (Matches Central Artwork & Phone 1) */
 .arch-frame {
-  border-radius: 200px 200px 18px 18px;
-  border: 1.5px solid var(--color-gold);
+  border-radius: 240px 240px 20px 20px;
+  border: 2px solid var(--color-gold);
   position: relative;
-  background-color: var(--color-ivory-elevated);
+  background-color: var(--color-ivory);
+  background-image:
+    radial-gradient(ellipse at 50% 18%, rgba(255, 249, 245, 0.85) 0%, rgba(247, 238, 232, 0.4) 65%, rgba(231, 184, 196, 0.2) 100%),
+    url('/assets/wedding/backgrounds/ivory-paper.jpg');
+  background-size: cover, 500px 700px;
   box-shadow:
-    0 6px 24px -10px rgba(58, 39, 43, 0.1),
-    0 18px 48px -18px rgba(97, 102, 76, 0.08);
+    0 14px 40px -10px rgba(73, 50, 55, 0.18),
+    0 24px 64px -18px rgba(73, 50, 55, 0.12),
+    inset 0 0 32px rgba(231, 184, 196, 0.18);
 }
 
 .arch-frame::after {
   content: "";
   position: absolute;
-  inset: 7px;
-  border-radius: 194px 194px 12px 12px;
-  border: 1px solid rgba(212, 186, 114, 0.42);
+  inset: 8px;
+  border-radius: 232px 232px 14px 14px;
+  border: 1px solid rgba(216, 195, 123, 0.65);
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Portrait Oval Gold Frame (Scene 04 Couple Identities) */
+.portrait-oval-frame {
+  border-radius: 9999px;
+  border: 2px solid var(--color-gold);
+  padding: 6px;
+  background: linear-gradient(145deg, #FFF9F5, #F7EEE8);
+  box-shadow:
+    0 10px 28px -8px rgba(120, 70, 83, 0.18),
+    inset 0 0 0 1px rgba(216, 195, 123, 0.45);
+  position: relative;
 }
 
 /* Typography Utility Classes */
@@ -145,31 +184,31 @@ body.cover-locked {
   font-family: var(--font-display);
   font-size: var(--text-couple-cover);
   letter-spacing: 0.14em;
-  line-height: 1.06;
-  color: var(--color-ink);
+  line-height: 1.08;
+  color: var(--color-burgundy);
 }
 
 .font-couple-hero {
   font-family: var(--font-display);
   font-size: var(--text-couple-hero);
-  letter-spacing: 0.07em;
+  letter-spacing: 0.12em;
   line-height: 1.1;
-  color: var(--color-ink);
+  color: var(--color-burgundy);
 }
 
 .font-section-heading {
   font-family: var(--font-display);
   font-size: var(--text-section-title);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   line-height: 1.2;
-  color: var(--color-ink);
+  color: var(--color-burgundy);
 }
 
 .font-script-accent {
   font-family: var(--font-script);
   font-size: var(--text-script-accent);
   line-height: 1.15;
-  color: var(--color-muted-rose);
+  color: var(--color-burgundy);
   font-weight: 400;
 }
 
@@ -183,12 +222,101 @@ body.cover-locked {
 }
 
 /* ==========================================================================
+   CANDLE FLAME FLICKER & FLOATING PETALS (GPU ACCELERATED)
+   ========================================================================== */
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.92;
+  }
+  25% {
+    transform: scale(1.06, 0.96) rotate(1.5deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.95, 1.05) rotate(-0.5deg);
+    opacity: 0.86;
+  }
+  75% {
+    transform: scale(1.04, 1.02) rotate(1deg);
+    opacity: 0.96;
+  }
+}
+
+.candle-flame {
+  transform-origin: bottom center;
+  animation: candleFlicker 2.8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.candle-flame-delayed {
+  transform-origin: bottom center;
+  animation: candleFlicker 3.3s ease-in-out 1.1s infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes floatPetalDrift {
+  0% {
+    transform: translate3d(0, -10px, 0) rotate(0deg) scale(0.92);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.78;
+  }
+  50% {
+    transform: translate3d(18px, 45px, 0) rotate(22deg) scale(1);
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(-12px, 100px, 0) rotate(-18deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+.floating-petal {
+  pointer-events: none;
+  animation: floatPetalDrift 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.floating-petal-slow {
+  pointer-events: none;
+  animation: floatPetalDrift 12s ease-in-out 2.5s infinite;
+  will-change: transform, opacity;
+}
+
+.floating-petal-alt {
+  pointer-events: none;
+  animation: floatPetalDrift 10.5s ease-in-out 4.5s infinite;
+  will-change: transform, opacity;
+}
+
+/* Subtle botanical sway */
+@keyframes subtleFloralSway {
+  0%, 100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(1.3deg) translate3d(0, -3px, 0);
+  }
+}
+
+.ambient-floral-sway {
+  animation: subtleFloralSway 9s ease-in-out infinite;
+  transform-origin: bottom center;
+  will-change: transform;
+}
+
+/* ==========================================================================
    CINEMATIC OPENING INVITATION COVER ANIMATIONS
    ========================================================================== */
 #invitation-cover {
   transition:
-    opacity 650ms var(--ease-curtain),
-    visibility 650ms var(--ease-curtain);
+    opacity 750ms var(--ease-curtain),
+    visibility 750ms var(--ease-curtain);
   will-change: opacity, visibility;
 }
 
@@ -196,7 +324,7 @@ body.cover-locked {
   transition:
     transform var(--dur-curtain) var(--ease-curtain),
     opacity 850ms var(--ease-curtain) 120ms;
-  transform-origin: left center;
+  transform-origin: left top;
   will-change: transform, opacity;
 }
 
@@ -204,48 +332,40 @@ body.cover-locked {
   transition:
     transform var(--dur-curtain) var(--ease-curtain),
     opacity 850ms var(--ease-curtain) 120ms;
-  transform-origin: right center;
+  transform-origin: right top;
   will-change: transform, opacity;
 }
 
 #invitation-cover .curtain-pelmet {
   transition:
-    transform 750ms var(--ease-curtain),
-    opacity 650ms var(--ease-curtain);
+    transform 800ms var(--ease-curtain),
+    opacity 700ms var(--ease-curtain);
   will-change: transform, opacity;
 }
 
 #invitation-cover .curtain-light-beam {
   transition:
-    opacity 600ms ease-out,
+    opacity 650ms ease-out,
     transform var(--dur-curtain) var(--ease-curtain);
   will-change: opacity, transform;
 }
 
 #invitation-cover .cover-card-shell {
   transition:
-    transform 750ms var(--ease-curtain) 40ms,
-    opacity 600ms var(--ease-curtain) 80ms;
+    transform 800ms var(--ease-curtain) 40ms,
+    opacity 650ms var(--ease-curtain) 80ms;
   transform-origin: center center;
-  will-change: transform, opacity;
-}
-
-#invitation-cover .curtain-left img,
-#invitation-cover .curtain-right img {
-  transition:
-    transform 750ms var(--ease-curtain),
-    opacity 550ms ease-out 60ms;
   will-change: transform, opacity;
 }
 
 /* Cinematic parting on open */
 #invitation-cover.is-opening .curtain-left {
-  transform: translate3d(-104%, 0, 0) scaleX(0.72) skewY(1.2deg);
+  transform: translate3d(-104%, 0, 0) scaleX(0.75) skewY(1.2deg);
   opacity: 0;
 }
 
 #invitation-cover.is-opening .curtain-right {
-  transform: translate3d(104%, 0, 0) scaleX(0.72) skewY(-1.2deg);
+  transform: translate3d(104%, 0, 0) scaleX(0.75) skewY(-1.2deg);
   opacity: 0;
 }
 
@@ -259,18 +379,8 @@ body.cover-locked {
   transform: scale(1.18);
 }
 
-#invitation-cover.is-opening .curtain-left img {
-  transform: translate3d(-35%, 15%, 0) rotate(-6deg);
-  opacity: 0;
-}
-
-#invitation-cover.is-opening .curtain-right img {
-  transform: translate3d(35%, 15%, 0) rotate(6deg) scaleX(-1);
-  opacity: 0;
-}
-
 #invitation-cover.is-opening .cover-card-shell {
-  transform: translate3d(0, -16px, 0) scale(1.02);
+  transform: translate3d(0, -14px, 0) scale(1.03);
   opacity: 0;
 }
 
@@ -282,12 +392,12 @@ body.cover-locked {
 
 /* 3D Wax Seal Button Pulse & Styling */
 .wax-seal-btn {
-  background: radial-gradient(circle at 35% 35%, #D46B7C 0%, #A83A4C 45%, #6B212D 85%, #4A151E 100%);
+  background: radial-gradient(circle at 35% 35%, #C98AA3 0%, #9E566E 45%, #784653 85%, #493237 100%);
   box-shadow:
-    0 8px 22px -3px rgba(74, 21, 30, 0.48),
-    0 2px 6px rgba(0, 0, 0, 0.2),
-    inset 0 2px 3px rgba(255, 255, 255, 0.35),
-    inset 0 -3px 5px rgba(0, 0, 0, 0.45);
+    0 10px 26px -4px rgba(73, 50, 55, 0.52),
+    0 3px 8px rgba(0, 0, 0, 0.22),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.45);
   transition:
     transform 0.28s var(--ease-wax),
     box-shadow 0.28s var(--ease-editorial),
@@ -299,31 +409,28 @@ body.cover-locked {
 .wax-seal-btn::after {
   content: "";
   position: absolute;
-  inset: -4px;
+  inset: -5px;
   border-radius: 50%;
-  border: 1px dashed rgba(212, 186, 114, 0.55);
+  border: 1.2px dashed rgba(216, 195, 123, 0.72);
   pointer-events: none;
   animation: sealGlowPulse 3s ease-in-out infinite;
 }
 
 @keyframes sealGlowPulse {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
     opacity: 0.45;
   }
-
   50% {
     transform: scale(1.08);
-    opacity: 0.85;
+    opacity: 0.9;
   }
 }
 
 .wax-seal-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
   box-shadow:
-    0 12px 28px -2px rgba(74, 21, 30, 0.58),
+    0 14px 30px -2px rgba(73, 50, 55, 0.6),
     inset 0 2px 4px rgba(255, 255, 255, 0.45);
 }
 
@@ -332,54 +439,9 @@ body.cover-locked {
 }
 
 #invitation-cover.is-opening .wax-seal-btn {
-  transform: scale(1.18);
-  filter: drop-shadow(0 0 28px rgba(212, 186, 114, 0.95)) drop-shadow(0 0 50px rgba(231, 184, 196, 0.7));
+  transform: scale(1.22);
+  filter: drop-shadow(0 0 28px rgba(216, 195, 123, 0.95)) drop-shadow(0 0 50px rgba(231, 184, 196, 0.75));
   opacity: 0;
-}
-
-
-/* Ambient Floating Petals */
-@keyframes floatingPetal {
-  0% {
-    transform: translateY(0) rotate(0deg) scale(0.95);
-    opacity: 0.6;
-  }
-
-  50% {
-    transform: translateY(-16px) rotate(8deg) scale(1.02);
-    opacity: 0.85;
-  }
-
-  100% {
-    transform: translateY(0) rotate(0deg) scale(0.95);
-    opacity: 0.6;
-  }
-}
-
-.ambient-petal {
-  animation: floatingPetal 8s ease-in-out infinite;
-}
-
-.ambient-petal-delayed {
-  animation: floatingPetal 10s ease-in-out 3s infinite;
-}
-
-/* Subtle botanical sway */
-@keyframes subtleFloralSway {
-
-  0%,
-  100% {
-    transform: rotate(0deg) translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: rotate(1.4deg) translate3d(0, -4px, 0);
-  }
-}
-
-.ambient-floral-sway {
-  animation: subtleFloralSway 10s ease-in-out infinite;
-  transform-origin: bottom center;
 }
 
 /* ==========================================================================
@@ -387,7 +449,7 @@ body.cover-locked {
    ========================================================================== */
 [data-motion="fadeRise"] {
   opacity: 0;
-  transform: translate3d(0, 24px, 0);
+  transform: translate3d(0, 22px, 0);
   transition:
     opacity var(--dur-entrance) var(--ease-editorial),
     transform var(--dur-entrance) var(--ease-editorial);
@@ -401,8 +463,8 @@ body.cover-locked {
 
 [data-motion="softReveal"] {
   opacity: 0;
-  clip-path: inset(6% 3% 6% 3% round 20px);
-  transform: translate3d(0, 16px, 0);
+  clip-path: inset(5% 2% 5% 2% round 18px);
+  transform: translate3d(0, 14px, 0);
   transition:
     opacity var(--dur-image) var(--ease-editorial),
     clip-path var(--dur-image) var(--ease-editorial),
@@ -416,106 +478,44 @@ body.cover-locked {
   transform: translate3d(0, 0, 0);
 }
 
-/* Line Drawing Stroke Animation */
-.ornament-path {
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
-  transition: stroke-dashoffset 900ms var(--ease-editorial);
-}
-
-.is-visible .ornament-path,
-.ornament-path.is-visible {
-  stroke-dashoffset: 0;
-}
-
 /* Tabular Numerals for Rock-Solid Countdown */
 .tabular-nums {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
 }
 
+@keyframes countdownPulse {
+  0% {
+    transform: translateY(-3px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.countdown-tick {
+  animation: countdownPulse 240ms var(--ease-editorial);
+}
+
 /* ==========================================================================
-   MOBILE-FIRST NAVIGATION DOCK & PRACTICAL RSVP
+   MOODBOARD RSVP PILL BUTTONS (MATCHING PHONE 4)
    ========================================================================== */
-.mobile-nav-dock {
-  background: rgba(255, 253, 251, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(100, 73, 80, 0.2);
-  box-shadow: 0 10px 30px -5px rgba(58, 39, 43, 0.15);
-}
-
-.mobile-nav-link.is-active {
-  color: var(--color-ink) !important;
-  font-weight: 600;
-}
-
-.mobile-nav-link.is-active .nav-icon-wrap {
-  background-color: var(--color-dusty-pink-soft);
-  border-color: var(--color-mauve);
-  transform: translateY(-2px);
-}
-
-/* RSVP Attendance Card Interactive States */
-.rsvp-card-option {
-  border: 1.5px solid var(--color-border);
-  background-color: rgba(250, 246, 240, 0.6);
-  border-radius: 14px;
-  transition: all 0.22s var(--ease-editorial);
-  cursor: pointer;
-}
-
-.rsvp-card-option:hover {
-  border-color: var(--color-mauve);
-  background-color: var(--color-ivory-elevated);
-}
-
-.rsvp-card-option.is-selected {
-  border-color: var(--color-sage);
-  background-color: rgba(97, 102, 76, 0.08);
-  box-shadow: 0 4px 14px -3px rgba(97, 102, 76, 0.2);
-}
-
-.rsvp-card-option.is-declined {
-  border-color: var(--color-ink-muted);
-  background-color: rgba(58, 39, 43, 0.06);
-}
-
-/* Number Stepper Button */
-.stepper-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
-  background: var(--color-ivory-elevated);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: var(--color-ink);
-  transition: all 0.18s ease;
-  cursor: pointer;
-}
-
-.stepper-btn:hover:not(:disabled) {
-  background: var(--color-dusty-pink);
-  color: var(--color-ink);
-  border-color: var(--color-mauve);
-}
-
-.stepper-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
+.rsvp-pill-label {
+  transition:
+    background-color 200ms var(--ease-editorial),
+    border-color 200ms var(--ease-editorial),
+    color 200ms var(--ease-editorial),
+    box-shadow 200ms var(--ease-editorial),
+    transform 180ms var(--ease-editorial);
 }
 
 /* Sound Wave Animation */
 @keyframes soundWave {
-
-  0%,
-  100% {
+  0%, 100% {
     height: 4px;
   }
-
   50% {
     height: 16px;
   }
@@ -524,17 +524,36 @@ body.cover-locked {
 .soundwave-bar:nth-child(1) {
   animation: soundWave 1.1s ease-in-out infinite;
 }
-
 .soundwave-bar:nth-child(2) {
   animation: soundWave 1.1s ease-in-out 0.2s infinite;
 }
-
 .soundwave-bar:nth-child(3) {
   animation: soundWave 1.1s ease-in-out 0.4s infinite;
 }
-
 .soundwave-bar:nth-child(4) {
   animation: soundWave 1.1s ease-in-out 0.1s infinite;
+}
+
+/* ==========================================================================
+   MOBILE-FIRST NAVIGATION DOCK
+   ========================================================================== */
+.mobile-nav-dock {
+  background: rgba(255, 249, 245, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(216, 195, 123, 0.55);
+  box-shadow: 0 10px 30px -5px rgba(73, 50, 55, 0.16);
+}
+
+.mobile-nav-link.is-active {
+  color: var(--color-burgundy) !important;
+  font-weight: 600;
+}
+
+.mobile-nav-link.is-active .nav-icon-wrap {
+  background-color: var(--color-dusty-pink-soft);
+  border-color: var(--color-mauve);
+  transform: translateY(-2px);
 }
 
 /* Accessible Focus States */
@@ -567,13 +586,12 @@ body.cover-locked {
     clip-path: none !important;
   }
 
-  .ornament-path {
-    stroke-dashoffset: 0 !important;
-  }
-
   .ambient-floral-sway,
-  .ambient-petal,
-  .ambient-petal-delayed {
+  .floating-petal,
+  .floating-petal-slow,
+  .floating-petal-alt,
+  .candle-flame,
+  .candle-flame-delayed {
     animation: none !important;
   }
 }
@@ -590,14 +608,12 @@ body.reduced-motion-mode [data-motion="softReveal"] {
   transition: opacity 150ms ease !important;
 }
 
-body.reduced-motion-mode .ornament-path {
-  stroke-dashoffset: 0 !important;
-  transition: none !important;
-}
-
 body.reduced-motion-mode .ambient-floral-sway,
-body.reduced-motion-mode .ambient-petal,
-body.reduced-motion-mode .ambient-petal-delayed {
+body.reduced-motion-mode .floating-petal,
+body.reduced-motion-mode .floating-petal-slow,
+body.reduced-motion-mode .floating-petal-alt,
+body.reduced-motion-mode .candle-flame,
+body.reduced-motion-mode .candle-flame-delayed {
   animation: none !important;
 }
 
