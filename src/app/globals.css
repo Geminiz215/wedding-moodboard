@@ -320,26 +320,24 @@ body.cover-locked {
   will-change: opacity, visibility;
 }
 
-#invitation-cover .curtain-left {
-  transition:
-    transform var(--dur-curtain) var(--ease-curtain),
-    opacity 850ms var(--ease-curtain) 120ms;
-  transform-origin: left top;
-  will-change: transform, opacity;
-}
-
-#invitation-cover .curtain-right {
-  transition:
-    transform var(--dur-curtain) var(--ease-curtain),
-    opacity 850ms var(--ease-curtain) 120ms;
-  transform-origin: right top;
-  will-change: transform, opacity;
-}
-
 #invitation-cover .curtain-pelmet {
   transition:
-    transform 800ms var(--ease-curtain),
-    opacity 700ms var(--ease-curtain);
+    transform 850ms var(--ease-curtain),
+    opacity 750ms var(--ease-curtain);
+  will-change: transform, opacity;
+}
+
+#invitation-cover .curtain-flourish-left {
+  transition:
+    transform 850ms var(--ease-curtain),
+    opacity 750ms var(--ease-curtain);
+  will-change: transform, opacity;
+}
+
+#invitation-cover .curtain-flourish-right {
+  transition:
+    transform 850ms var(--ease-curtain),
+    opacity 750ms var(--ease-curtain);
   will-change: transform, opacity;
 }
 
@@ -359,18 +357,18 @@ body.cover-locked {
 }
 
 /* Cinematic parting on open */
-#invitation-cover.is-opening .curtain-left {
-  transform: translate3d(-104%, 0, 0) scaleX(0.75) skewY(1.2deg);
-  opacity: 0;
-}
-
-#invitation-cover.is-opening .curtain-right {
-  transform: translate3d(104%, 0, 0) scaleX(0.75) skewY(-1.2deg);
-  opacity: 0;
-}
-
 #invitation-cover.is-opening .curtain-pelmet {
-  transform: translate3d(0, -100%, 0);
+  transform: translate3d(-50%, -75px, 0) scale(0.95);
+  opacity: 0;
+}
+
+#invitation-cover.is-opening .curtain-flourish-left {
+  transform: translate3d(-40px, -20px, 0);
+  opacity: 0;
+}
+
+#invitation-cover.is-opening .curtain-flourish-right {
+  transform: translate3d(40px, -20px, 0) scaleX(-1);
   opacity: 0;
 }
 
@@ -617,8 +615,9 @@ body.reduced-motion-mode .candle-flame-delayed {
   animation: none !important;
 }
 
-body.reduced-motion-mode #invitation-cover .curtain-left,
-body.reduced-motion-mode #invitation-cover .curtain-right,
+body.reduced-motion-mode #invitation-cover .curtain-pelmet,
+body.reduced-motion-mode #invitation-cover .curtain-flourish-left,
+body.reduced-motion-mode #invitation-cover .curtain-flourish-right,
 body.reduced-motion-mode #invitation-cover .cover-card-shell {
   transform: none !important;
   transition: opacity 200ms ease !important;

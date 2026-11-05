@@ -104,82 +104,45 @@
       <span class="floating-petal absolute top-1/4 right-[12%] w-3.5 h-3.5 rounded-tr-full rounded-bl-full bg-[#E7B8C4]/80 -rotate-45"></span>
     </div>
 
-    <!-- Classical Scalloped Sage-Green Velvet Pelmet at Top -->
-    <div class="curtain-pelmet pointer-events-none absolute top-0 left-0 right-0 h-20 sm:h-28 md:h-32 z-25 overflow-hidden" aria-hidden="true">
-      <img
-        src="/assets/wedding/drapery/sage-curtain-top.png"
-        alt=""
-        class="w-full h-full object-cover sm:object-fill object-top drop-shadow-lg select-none"
-      />
-    </div>
-
-    <!-- Left Sage Velvet Gatefold Curtain & Cascading Florals -->
-    <div class="curtain-left pointer-events-none absolute top-0 left-0 bottom-0 w-1/2 z-15 overflow-hidden" aria-hidden="true">
-      <svg class="absolute top-0 left-0 w-full h-full text-[#6B6F52]" viewBox="0 0 500 900" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="curtain-grad-left" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#434733" />
-            <stop offset="38%" stop-color="#6B6F52" />
-            <stop offset="82%" stop-color="#555A3F" />
-            <stop offset="100%" stop-color="#3A3E2B" />
-          </linearGradient>
-        </defs>
-        <path d="M0,0 L500,0 L465,900 L0,900 Z" fill="url(#curtain-grad-left)" opacity="0.94" />
-        <path d="M75,0 Q95,450 65,900" stroke="#808564" stroke-width="18" opacity="0.45" fill="none" />
-        <path d="M185,0 Q208,450 170,900" stroke="#808564" stroke-width="22" opacity="0.4" fill="none" />
-        <path d="M305,0 Q325,450 285,900" stroke="#808564" stroke-width="20" opacity="0.35" fill="none" />
-        <path d="M415,0 Q435,450 398,900" stroke="#808564" stroke-width="16" opacity="0.3" fill="none" />
-        <line x1="494" y1="0" x2="462" y2="900" stroke="#D8C37B" stroke-width="2.5" opacity="0.85" />
-      </svg>
-      <!-- Cascading Garden Rose Cluster (Upper Left) -->
+    <!-- Outer Dense Floral Hedge Framing (Left & Right Bottom Swags) -->
+    <div class="pointer-events-none absolute inset-0 z-10 overflow-hidden" aria-hidden="true">
       <img
         src="/assets/wedding/flowers/garden-rose-cluster.png"
-        alt=""
-        class="absolute top-8 -left-4 w-28 sm:w-40 opacity-95 drop-shadow-md select-none"
-      />
-      <!-- Lush Peony Bed (Bottom Left) -->
-      <img
-        src="/assets/wedding/flowers/peony-corner-left.png"
         alt=""
         class="absolute -bottom-6 -left-6 w-48 sm:w-64 md:w-72 opacity-95 drop-shadow-xl select-none"
       />
-    </div>
-
-    <!-- Right Sage Velvet Gatefold Curtain & Cascading Florals -->
-    <div class="curtain-right pointer-events-none absolute top-0 right-0 bottom-0 w-1/2 z-15 overflow-hidden" aria-hidden="true">
-      <svg class="absolute top-0 right-0 w-full h-full text-[#6B6F52]" viewBox="0 0 500 900" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="curtain-grad-right" x1="100%" y1="0%" x2="0%" y2="0%">
-            <stop offset="0%" stop-color="#434733" />
-            <stop offset="38%" stop-color="#6B6F52" />
-            <stop offset="82%" stop-color="#555A3F" />
-            <stop offset="100%" stop-color="#3A3E2B" />
-          </linearGradient>
-        </defs>
-        <path d="M500,0 L0,0 L35,900 L500,900 Z" fill="url(#curtain-grad-right)" opacity="0.94" />
-        <path d="M425,0 Q405,450 435,900" stroke="#808564" stroke-width="18" opacity="0.45" fill="none" />
-        <path d="M315,0 Q292,450 330,900" stroke="#808564" stroke-width="22" opacity="0.4" fill="none" />
-        <path d="M195,0 Q175,450 215,900" stroke="#808564" stroke-width="20" opacity="0.35" fill="none" />
-        <path d="M85,0 Q65,450 102,900" stroke="#808564" stroke-width="16" opacity="0.3" fill="none" />
-        <line x1="6" y1="0" x2="38" y2="900" stroke="#D8C37B" stroke-width="2.5" opacity="0.85" />
-      </svg>
-      <!-- Cascading Garden Rose Cluster (Upper Right) -->
       <img
         src="/assets/wedding/flowers/garden-rose-cluster.png"
         alt=""
-        class="absolute top-8 -right-4 w-28 sm:w-40 opacity-95 drop-shadow-md select-none scale-x-[-1]"
-      />
-      <!-- Lush Peony Bed (Bottom Right) -->
-      <img
-        src="/assets/wedding/flowers/peony-corner-right.png"
-        alt=""
-        class="absolute -bottom-6 -right-6 w-48 sm:w-64 md:w-72 opacity-95 drop-shadow-xl select-none"
+        class="absolute -bottom-6 -right-6 w-48 sm:w-64 md:w-72 opacity-95 drop-shadow-xl select-none scale-x-[-1]"
       />
     </div>
 
     <!-- Center Arched Luxury Invitation Card (Matches Moodboard Hero Artwork) -->
-    <div class="cover-card-shell relative z-20 w-full max-w-[410px] mx-auto my-auto pt-6">
+    <div class="cover-card-shell relative z-20 w-full max-w-[410px] mx-auto my-auto pt-10 sm:pt-14">
       
+      <!-- Classical Scalloped Sage-Green Velvet Pelmet & Valance Canopy -->
+      <div class="curtain-pelmet pointer-events-none absolute -top-8 sm:-top-12 left-1/2 -translate-x-1/2 w-[114%] max-w-[470px] z-25 overflow-visible" aria-hidden="true">
+        <img
+          src="/assets/wedding/drapery/sage-curtain-top.png"
+          alt=""
+          class="w-full h-auto object-contain drop-shadow-2xl select-none"
+        />
+      </div>
+
+      <!-- Cascading Garden Rose Clusters (Curtain Corner Swags) -->
+      <img
+        src="/assets/wedding/flowers/garden-rose-cluster.png"
+        alt=""
+        class="curtain-flourish-left pointer-events-none absolute top-3 sm:top-5 -left-6 sm:-left-8 w-24 sm:w-32 opacity-95 drop-shadow-lg select-none z-25"
+        aria-hidden="true"
+      />
+      <img
+        src="/assets/wedding/flowers/garden-rose-cluster.png"
+        alt=""
+        class="curtain-flourish-right pointer-events-none absolute top-3 sm:top-5 -right-6 sm:-right-8 w-24 sm:w-32 opacity-95 drop-shadow-lg select-none scale-x-[-1] z-25"
+        aria-hidden="true"
+      />
       <!-- Top Center Large Pink Silk Bow & Layered Peony (Moodboard Crown) -->
       <div class="pointer-events-none relative -mb-11 sm:-mb-14 z-30 flex flex-col items-center justify-center" aria-hidden="true">
         <img
@@ -1850,10 +1813,12 @@
         </p>
 
         <!-- Silk Bow & Wax Seal Illustration (Matching Moodboard Envelope & Seal) -->
-        <div data-motion="fadeRise" style="--stagger-delay: 200ms;" class="my-6 flex flex-col items-center justify-center" aria-hidden="true">
-          <img src="/assets/wedding/ribbons/silk-bow-small.png" alt="" class="w-20 h-auto -mb-3 drop-shadow-sm select-none" />
-          <div class="relative w-16 h-16 flex items-center justify-center">
-            <img src="/assets/wedding/ornaments/wax-seal.png" alt="" class="w-full h-full object-contain drop-shadow-md select-none" />
+        <div data-motion="fadeRise" style="--stagger-delay: 200ms;" class="my-6 flex justify-center" aria-hidden="true">
+          <div class="relative inline-flex items-center justify-center">
+            <img src="/assets/wedding/ribbons/silk-bow-small.png" alt="" class="w-24 sm:w-28 h-auto drop-shadow-sm select-none" />
+            <div class="absolute w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center pointer-events-none drop-shadow-md" style="top: 34%; left: 50%; transform: translate(-50%, -50%);">
+              <img src="/assets/wedding/ornaments/wax-seal.png" alt="" class="w-full h-full object-contain select-none" />
+            </div>
           </div>
         </div>
 
