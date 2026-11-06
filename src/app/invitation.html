@@ -1702,79 +1702,88 @@
 
     <!-- Moodboard Bottom-Right Stage Container -->
     <div
-      class="max-w-4xl mx-auto relative rounded-[28px] overflow-hidden border-2 border-[#D8C37B] shadow-arch bg-[#F7EEE8] px-6 sm:px-12 pt-20 pb-28 sm:pb-36">
+      class="max-w-4xl mx-auto relative rounded-[28px] overflow-hidden border-2 border-[#D8C37B] shadow-2xl bg-[#F7EEE8] px-4 sm:px-10 pt-24 sm:pt-28 pb-36 sm:pb-44">
 
       <!-- Dusty-Pink Silk Curtain Background (Matching Moodboard Bottom-Right Stage) -->
       <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         <img src="/assets/wedding/drapery/pink-curtain-background.png" alt=""
-          class="w-full h-full object-cover object-center opacity-75 select-none" />
-        <div class="absolute inset-0 bg-gradient-to-b from-[#F7EEE8]/30 via-[#F7EEE8]/70 to-[#F7EEE8]/90"></div>
+          class="w-full h-full object-cover object-center opacity-80 select-none" />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#F7EEE8]/35 via-[#F7EEE8]/65 to-[#F7EEE8]/90"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,rgba(255,255,255,0.5)_0%,transparent_65%)]"></div>
       </div>
 
-      <!-- Sage-Green Draped Velvet Curtains (Top Valance) -->
-      <img src="/assets/wedding/drapery/sage-curtain-top.png" alt="" aria-hidden="true"
-        class="pointer-events-none absolute top-0 left-0 right-0 w-full h-20 sm:h-28 object-cover object-top z-10 drop-shadow-md select-none" />
+      <!-- Sage-Green Draped Velvet Curtains (Top Valance & Pelmet Canopy) -->
+      <div class="pointer-events-none absolute top-0 -left-1 -right-1 z-10 overflow-hidden" aria-hidden="true">
+        <img src="/assets/wedding/drapery/sage-curtain-top.png" alt=""
+          class="w-full h-28 sm:h-36 md:h-44 object-cover object-top drop-shadow-xl select-none" />
+      </div>
 
       <!-- Floating Petals in Closing Scene -->
       <div class="pointer-events-none absolute inset-0 z-15 overflow-hidden" aria-hidden="true">
         <span
-          class="floating-petal absolute top-16 left-[18%] w-3.5 h-4 rounded-tl-full rounded-br-full bg-[#E7B8C4]/85"></span>
+          class="floating-petal absolute top-20 left-[15%] w-3.5 h-4 rounded-tl-full rounded-br-full bg-[#E7B8C4]/85"></span>
         <span
-          class="floating-petal-slow absolute top-24 right-[18%] w-4 h-3 rounded-tr-full rounded-bl-full bg-[#C98AA3]/75"></span>
+          class="floating-petal-slow absolute top-32 right-[18%] w-4 h-3 rounded-tr-full rounded-bl-full bg-[#C98AA3]/75"></span>
         <span
           class="floating-petal-alt absolute top-1/2 left-[12%] w-3 h-3.5 rounded-tl-full rounded-br-full bg-[#E7B8C4]/75"></span>
+        <span
+          class="floating-petal absolute bottom-36 right-[14%] w-3.5 h-3 rounded-tr-full rounded-bl-full bg-[#C98AA3]/70"></span>
       </div>
 
       <!-- Center Closing Stationery Card -->
-      <div class="relative z-20 max-w-lg mx-auto">
+      <div class="relative z-20 max-w-[420px] sm:max-w-[440px] mx-auto">
 
-        <!-- Large Pink Silk Bow & Peony Crown -->
+        <!-- Refined Pink Silk Bow & Peony Crown -->
         <div data-motion="fadeRise"
-          class="pointer-events-none relative -mb-10 z-30 flex flex-col items-center justify-center" aria-hidden="true">
-          <img src="/assets/wedding/ribbons/silk-bow-large.png" alt=""
-            class="w-32 sm:w-36 h-auto drop-shadow-md select-none" />
+          class="pointer-events-none relative -mb-6 sm:-mb-7 z-30 flex flex-col items-center justify-center" aria-hidden="true">
+          <img src="/assets/wedding/ribbons/silk-bow-small.png" alt=""
+            class="w-24 sm:w-28 h-auto drop-shadow-md select-none" />
           <img src="/assets/wedding/flowers/peony-large-top.png" alt=""
-            class="w-20 sm:w-24 -mt-24 sm:-mt-28 drop-shadow-sm select-none" />
+            class="w-14 sm:w-16 -mt-16 sm:-mt-18 drop-shadow-sm select-none" />
         </div>
 
         <div data-motion="fadeRise" style="--stagger-delay: 80ms;"
-          class="pink-paper-surface border-2 border-[#D8C37B] rounded-2xl px-6 sm:px-10 pt-14 pb-10 shadow-lg relative overflow-hidden">
-          <p class="font-eyebrow text-[10px] text-[#784653] tracking-[0.26em] mb-2">
+          class="pink-paper-surface border-2 border-[#D8C37B] rounded-2xl px-6 sm:px-10 pt-10 sm:pt-12 pb-10 sm:pb-12 shadow-xl relative overflow-hidden">
+          
+          <!-- Inner Delicate Gold Frame Accent -->
+          <div class="pointer-events-none absolute inset-2.5 rounded-xl border border-[#D8C37B]/45 border-dashed" aria-hidden="true"></div>
+
+          <p class="font-eyebrow text-[10px] text-[#784653] tracking-[0.28em] uppercase mb-1">
             SCENE 11 • WITH LOVE &amp; GRATITUDE
           </p>
 
           <!-- "Same love, new chapter." (Exact Moodboard Quote Card Typography) -->
-          <p class="font-script text-4xl sm:text-5xl text-[#784653] leading-tight my-3">
+          <p class="font-script text-3xl sm:text-[38px] text-[#784653] leading-snug my-2">
             Same love, new chapter.
           </p>
 
           <!-- Tiny Heart Divider from Moodboard Quote Card -->
-          <div class="my-4 flex items-center justify-center gap-3" aria-hidden="true">
-            <span class="h-[1px] w-14 bg-[#784653]/35"></span>
+          <div class="my-3 sm:my-4 flex items-center justify-center gap-3" aria-hidden="true">
+            <span class="h-[1px] w-12 bg-[#784653]/35"></span>
             <svg class="w-3.5 h-3.5 text-[#784653]" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
-            <span class="h-[1px] w-14 bg-[#784653]/35"></span>
+            <span class="h-[1px] w-12 bg-[#784653]/35"></span>
           </div>
 
-          <h2 class="font-display text-2xl sm:text-3xl text-[#784653] font-normal tracking-[0.16em] uppercase mt-2">
+          <h2 class="font-display text-2xl sm:text-3xl text-[#784653] font-normal tracking-[0.18em] uppercase mt-1">
             Zahra &amp; Fachri
           </h2>
 
-          <p class="text-xs sm:text-sm text-[#493237]/90 leading-relaxed font-serif mt-3 max-w-sm mx-auto">
+          <p class="text-xs sm:text-sm text-[#493237]/90 leading-relaxed font-serif italic mt-2.5 max-w-xs mx-auto">
             Thank you for being part of our special day.
           </p>
 
-          <p class="font-sans text-[11px] uppercase tracking-[0.24em] text-[#9A7078] mt-4 font-medium">
+          <p class="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#9A7078] mt-3.5 font-medium">
             14 . 06 . 2025 • JAKARTA
           </p>
 
           <!-- Back to Top Button -->
-          <div class="mt-6">
+          <div class="mt-6 sm:mt-7 relative z-10">
             <a href="#opening"
-              class="inline-flex items-center gap-2 min-h-[44px] px-5 py-2 rounded-full bg-[#FFF9F5]/90 hover:bg-[#FFF9F5] border border-[#D8C37B] text-[#784653] text-[11px] uppercase tracking-[0.18em] font-medium transition-all shadow-sm">
-              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              class="inline-flex items-center gap-2 min-h-[44px] px-6 py-2.5 rounded-full bg-[#FFF9F5]/95 hover:bg-white border border-[#D8C37B] text-[#784653] text-[11px] uppercase tracking-[0.2em] font-medium transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0">
+              <svg class="w-3.5 h-3.5 text-[#784653]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
               </svg>
@@ -1785,13 +1794,47 @@
 
       </div>
 
-      <!-- Lush Bottom Garden of Peonies & Roses Across Stage Floor (Matching Moodboard Bottom-Right) -->
+      <!-- Antique Gold Taper Candles Flanking Stage Left & Right -->
+      <div class="pointer-events-none absolute bottom-5 sm:bottom-8 left-5 sm:left-12 z-15 flex items-end"
+        aria-hidden="true">
+        <svg class="w-8 sm:w-10 h-22 sm:h-28 overflow-visible drop-shadow-md" viewBox="0 0 60 140" fill="none">
+          <circle cx="20" cy="18" r="14" fill="#F7D794" opacity="0.45" />
+          <circle cx="42" cy="30" r="12" fill="#F7D794" opacity="0.4" />
+          <path class="candle-flame" d="M20 6 C16 14, 15 20, 20 24 C25 20, 24 14, 20 6 Z" fill="#FFF3B0" />
+          <path class="candle-flame-delayed" d="M42 18 C38 26, 37 32, 42 36 C47 32, 46 26, 42 18 Z"
+            fill="#FFF3B0" />
+          <rect x="17" y="24" width="6" height="56" rx="2" fill="#FFF9F5" stroke="#E7D8C9" stroke-width="0.8" />
+          <rect x="39" y="36" width="6" height="48" rx="2" fill="#FFF9F5" stroke="#E7D8C9" stroke-width="0.8" />
+          <path d="M13 80 H27 L23 86 H17 Z M20 86 V135 M12 135 H28" stroke="#D8C37B" stroke-width="2.5"
+            fill="#B89B4C" />
+          <path d="M35 84 H49 L45 90 H39 Z M42 90 V135 M34 135 H50" stroke="#D8C37B" stroke-width="2.5"
+            fill="#B89B4C" />
+        </svg>
+      </div>
+
+      <div class="pointer-events-none absolute bottom-5 sm:bottom-8 right-5 sm:right-12 z-15 flex items-end"
+        aria-hidden="true">
+        <svg class="w-8 sm:w-10 h-22 sm:h-28 overflow-visible drop-shadow-md" viewBox="0 0 60 140" fill="none">
+          <circle cx="40" cy="18" r="14" fill="#F7D794" opacity="0.45" />
+          <circle cx="18" cy="30" r="12" fill="#F7D794" opacity="0.4" />
+          <path class="candle-flame-delayed" d="M40 6 C36 14, 35 20, 40 24 C45 20, 44 14, 40 6 Z" fill="#FFF3B0" />
+          <path class="candle-flame" d="M18 18 C14 26, 13 32, 18 36 C23 32, 22 26, 18 18 Z" fill="#FFF3B0" />
+          <rect x="37" y="24" width="6" height="56" rx="2" fill="#FFF9F5" stroke="#E7D8C9" stroke-width="0.8" />
+          <rect x="15" y="36" width="6" height="48" rx="2" fill="#FFF9F5" stroke="#E7D8C9" stroke-width="0.8" />
+          <path d="M33 80 H47 L43 86 H37 Z M40 86 V135 M32 135 H48" stroke="#D8C37B" stroke-width="2.5"
+            fill="#B89B4C" />
+          <path d="M11 84 H25 L21 90 H15 Z M18 90 V135 M10 135 H26" stroke="#D8C37B" stroke-width="2.5"
+            fill="#B89B4C" />
+        </svg>
+      </div>
+
+      <!-- Lush Continuous Bottom Meadow Across Stage Floor (Matching Moodboard Bottom-Right) -->
       <img src="/assets/wedding/flowers/peony-corner-left.png" alt="" aria-hidden="true"
-        class="pointer-events-none absolute -bottom-6 -left-6 w-48 sm:w-64 z-25 drop-shadow-xl select-none" />
+        class="pointer-events-none absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-44 sm:w-60 md:w-68 z-25 drop-shadow-xl select-none" />
       <img src="/assets/wedding/flowers/pink-blossom-cluster.png" alt="" aria-hidden="true"
-        class="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 w-72 sm:w-96 z-20 opacity-95 drop-shadow-lg select-none" />
+        class="pointer-events-none absolute -bottom-10 sm:-bottom-14 left-1/2 -translate-x-1/2 w-80 sm:w-[480px] md:w-[540px] z-20 opacity-95 drop-shadow-lg select-none" />
       <img src="/assets/wedding/flowers/peony-corner-right.png" alt="" aria-hidden="true"
-        class="pointer-events-none absolute -bottom-6 -right-6 w-48 sm:w-64 z-25 drop-shadow-xl select-none" />
+        class="pointer-events-none absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 w-44 sm:w-60 md:w-68 z-25 drop-shadow-xl select-none" />
 
     </div>
   </footer>
