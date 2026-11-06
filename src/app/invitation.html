@@ -369,30 +369,15 @@
 
         <!-- Left/Center (7 cols): Exact Recreation of the Moodboard Main Poster Artwork -->
         <div
-          class="lg:col-span-7 relative mx-auto w-full max-w-[480px] rounded-[26px] overflow-hidden shadow-arch border-2 border-[#D8C37B] bg-[#F7EEE8]">
+          class="lg:col-span-7 relative mx-auto w-full max-w-[480px] rounded-[26px] overflow-hidden shadow-arch border-2 border-[#D8C37B] bg-[#F7EEE8] aspect-[896/1200]"
+          style="aspect-ratio: 896/1200;">
 
           <!-- Dusty-Pink Pleated Silk Curtain Backdrop -->
           <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
             <img src="/assets/wedding/drapery/pink-curtain-background.png" alt=""
-              class="w-full h-full object-cover object-top opacity-90 select-none" />
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#F7EEE8]/15 to-[#F7EEE8]/65"></div>
+              class="w-full h-full object-cover object-top opacity-85 select-none" />
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#F7EEE8]/20 to-[#F7EEE8]/65"></div>
           </div>
-
-          <!-- Sage-Green Draped Velvet Curtains at Top & Corners -->
-          <!-- <img src="/assets/wedding/drapery/sage-curtain-top.png" alt="" aria-hidden="true"
-            class="pointer-events-none absolute top-0 left-0 right-0 w-full h-24 sm:h-32 object-cover object-top z-10 drop-shadow-md select-none" /> -->
-          <!-- <img
-              src="/assets/wedding/drapery/sage-curtain-corners.png"
-              alt=""
-              aria-hidden="true"
-              class="pointer-events-none absolute top-0 left-0 right-0 w-full h-72 sm:h-96 object-fill object-top z-10 drop-shadow-lg select-none"
-            /> -->
-
-          <!-- Upper Side Cascading Pink & White Floral Clusters (Matching Moodboard) -->
-          <img src="/assets/wedding/flowers/garden-rose-cluster.png" alt="" aria-hidden="true"
-            class="pointer-events-none absolute top-6 -left-5 w-32 sm:w-40 z-15 drop-shadow-md select-none ambient-floral-sway" />
-          <img src="/assets/wedding/flowers/garden-rose-cluster.png" alt="" aria-hidden="true"
-            class="pointer-events-none absolute top-6 -right-5 w-32 sm:w-40 z-15 drop-shadow-md select-none scale-x-[-1] ambient-floral-sway" />
 
           <!-- Subtle Floating Petals -->
           <div class="pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
@@ -402,58 +387,54 @@
               class="floating-petal-slow absolute top-32 right-[22%] w-3.5 h-3 rounded-tr-full rounded-bl-full bg-[#C98AA3]/75"></span>
           </div>
 
-          <!-- Inner Stage Padding -->
-          <div class="relative z-15 px-6 sm:px-10 pt-14 sm:pt-16 pb-16 sm:pb-20">
+          <!-- Inner Arched Stationery Card (Framed Inside the Theatrical Curtains) -->
+          <div
+            class="absolute top-[31%] bottom-[8.5%] left-[23%] right-[23%] z-10 rounded-t-full rounded-b-xl border border-[#D8C37B]/75 bg-gradient-to-b from-[#FFFDF9]/95 via-[#FAF4EE]/92 to-[#F5EAE1]/90 shadow-[0_8px_24px_rgba(73,50,55,0.12)] flex flex-col items-center justify-center text-center px-2.5 sm:px-4 py-3 sm:py-5 overflow-hidden">
+            <!-- Delicate Inner Dashed Gold Hairline -->
+            <div
+              class="pointer-events-none absolute inset-1.5 sm:inset-2 rounded-t-full rounded-b-lg border border-[#D8C37B]/70 border-dashed"
+              aria-hidden="true"></div>
 
-            <!-- Large Pink Silk Bow & Layered Peony at Top Center of Arch -->
-            <div class="pointer-events-none relative -mb-12 sm:-mb-14 z-30 flex flex-col items-center justify-center"
-              aria-hidden="true">
-              <img src="/assets/wedding/ribbons/silk-bow-large.png" alt=""
-                class="w-36 sm:w-44 h-auto drop-shadow-lg select-none" />
-              <img src="/assets/wedding/flowers/peony-large-top.png" alt=""
-                class="w-24 sm:w-28 -mt-28 sm:-mt-32 drop-shadow-md select-none" />
+            <!-- Eyebrow -->
+            <p class="font-eyebrow text-[9px] sm:text-[11px] text-[#784653] tracking-[0.26em] uppercase font-semibold mb-1 sm:mb-2 relative z-10">
+              THE WEDDING OF
+            </p>
+
+            <!-- Couple Names in Playfair Display & Romantic Script Accent -->
+            <h2 class="font-serif font-normal uppercase text-[#784653] leading-none my-0.5 sm:my-1 relative z-10">
+              <span class="block text-xl sm:text-2xl lg:text-[26px] tracking-[0.14em]">ZAHRA</span>
+              <span class="font-script lowercase block text-lg sm:text-2xl text-[#9A7078] my-0.5 normal-case"
+                style="letter-spacing: 0;">and</span>
+              <span class="block text-xl sm:text-2xl lg:text-[26px] tracking-[0.14em]">FACHRI</span>
+            </h2>
+
+            <!-- Event Details -->
+            <div
+              class="mt-2 sm:mt-3 space-y-0.5 sm:space-y-1 text-center uppercase tracking-[0.2em] text-[#784653] font-medium relative z-10">
+              <p class="text-[9.5px] sm:text-[11px]">SATURDAY, 14 JUNE 2025</p>
+              <p class="text-[8.5px] sm:text-[9.5px] text-[#9A7078] tracking-[0.22em]">AT 4 PM</p>
+              <p class="pt-1 text-[9.5px] sm:text-[11px] font-semibold text-[#784653] tracking-[0.22em]">THE GRAND SANTIKA</p>
+              <p class="text-[8.5px] sm:text-[9.5px] text-[#9A7078] tracking-[0.24em]">JAKARTA</p>
             </div>
 
-            <!-- Central Champagne-Gold Arched Invitation Frame -->
-            <div class="arch-frame px-6 sm:px-10 pt-16 sm:pt-20 pb-16 sm:pb-20 text-center relative overflow-hidden">
-              <img src="/assets/wedding/ornaments/gold-frame.svg" alt="" aria-hidden="true"
-                class="pointer-events-none absolute inset-0 w-full h-full object-fill select-none" />
-
-              <p class="font-eyebrow text-[10px] sm:text-xs text-[#784653] tracking-[0.28em] mb-3 relative z-10">
-                THE WEDDING OF
-              </p>
-
-              <h2 class="font-couple-hero font-normal uppercase text-[#784653] relative z-10">
-                <span class="block">ZAHRA</span>
-                <span class="font-script-accent lowercase block -my-1 sm:-my-2 text-[#9A7078]"
-                  style="letter-spacing: 0;">and</span>
-                <span class="block">FACHRI</span>
-              </h2>
-
-              <div
-                class="mt-5 sm:mt-6 space-y-1.5 text-xs sm:text-[13px] tracking-[0.2em] uppercase text-[#784653] font-medium relative z-10">
-                <p>SATURDAY, 14 JUNE 2025</p>
-                <p class="text-[11px] text-[#9A7078] tracking-[0.24em]">AT 4 PM</p>
-                <p class="pt-2 text-[#784653] font-semibold">THE GRAND SANTIKA</p>
-                <p class="text-[11px] text-[#9A7078] tracking-[0.26em]">JAKARTA</p>
-              </div>
-
-              <!-- Mauve Ribbon Bow Divider -->
-              <div class="mt-5 flex justify-center relative z-10" aria-hidden="true">
-                <img src="/assets/wedding/ribbons/ribbon-divider.png" alt=""
-                  class="w-44 sm:w-52 h-auto opacity-95 select-none" />
-              </div>
+            <!-- Mauve Ribbon Bow Divider -->
+            <div class="mt-2 sm:mt-2.5 flex justify-center relative z-10" aria-hidden="true">
+              <img src="/assets/wedding/ribbons/ribbon-divider.png" alt=""
+                class="w-28 sm:w-36 h-auto opacity-95 select-none" />
             </div>
-
           </div>
 
-          <!-- Antique Gold Taper Candles Left & Right (Matching Moodboard Central Artwork) -->
-          <div class="pointer-events-none absolute bottom-16 left-9 sm:left-14 z-20 flex items-end gap-2"
+          <!-- Sage-Green Draped Velvet Curtains & Classical Proscenium Stage Frame -->
+          <img src="/assets/wedding/drapery/Wedding_frame_with_curtains_and_c7572db1.png" alt="" aria-hidden="true"
+            class="pointer-events-none absolute inset-0 w-full h-full object-fill drop-shadow-lg select-none z-15" />
+
+          <!-- Antique Gold Taper Candles Left & Right (Nestled at Base of Curtains) -->
+          <div class="pointer-events-none absolute bottom-3 sm:bottom-4 left-6 sm:left-9 z-25 flex items-end gap-1.5"
             aria-hidden="true">
-            <svg class="w-10 sm:w-12 h-28 sm:h-32 overflow-visible drop-shadow-md" viewBox="0 0 60 140" fill="none">
+            <svg class="w-7 sm:w-9 h-20 sm:h-24 overflow-visible drop-shadow-md" viewBox="0 0 60 140" fill="none">
               <!-- Glow -->
-              <circle cx="20" cy="18" r="14" fill="#F7D794" opacity="0.35" />
-              <circle cx="42" cy="30" r="12" fill="#F7D794" opacity="0.3" />
+              <circle cx="20" cy="18" r="14" fill="#F7D794" opacity="0.4" />
+              <circle cx="42" cy="30" r="12" fill="#F7D794" opacity="0.35" />
               <!-- Flames -->
               <path class="candle-flame" d="M20 6 C16 14, 15 20, 20 24 C25 20, 24 14, 20 6 Z" fill="#FFF3B0" />
               <path class="candle-flame-delayed" d="M42 18 C38 26, 37 32, 42 36 C47 32, 46 26, 42 18 Z"
@@ -469,11 +450,11 @@
             </svg>
           </div>
 
-          <div class="pointer-events-none absolute bottom-16 right-9 sm:right-14 z-20 flex items-end gap-2"
+          <div class="pointer-events-none absolute bottom-3 sm:bottom-4 right-6 sm:right-9 z-25 flex items-end gap-1.5"
             aria-hidden="true">
-            <svg class="w-10 sm:w-12 h-28 sm:h-32 overflow-visible drop-shadow-md" viewBox="0 0 60 140" fill="none">
-              <circle cx="40" cy="18" r="14" fill="#F7D794" opacity="0.35" />
-              <circle cx="18" cy="30" r="12" fill="#F7D794" opacity="0.3" />
+            <svg class="w-7 sm:w-9 h-20 sm:h-24 overflow-visible drop-shadow-md" viewBox="0 0 60 140" fill="none">
+              <circle cx="40" cy="18" r="14" fill="#F7D794" opacity="0.4" />
+              <circle cx="18" cy="30" r="12" fill="#F7D794" opacity="0.35" />
               <path class="candle-flame-delayed" d="M40 6 C36 14, 35 20, 40 24 C45 20, 44 14, 40 6 Z" fill="#FFF3B0" />
               <path class="candle-flame" d="M18 18 C14 26, 13 32, 18 36 C23 32, 22 26, 18 18 Z" fill="#FFF3B0" />
               <rect x="37" y="24" width="6" height="56" rx="2" fill="#FFF9F5" stroke="#E7D8C9" stroke-width="0.8" />
@@ -487,9 +468,9 @@
 
           <!-- Dense Bottom Peony & Rose Arrangements (Left & Right Corners) -->
           <img src="/assets/wedding/flowers/peony-corner-left.png" alt="" aria-hidden="true"
-            class="pointer-events-none absolute -bottom-6 -left-6 w-52 sm:w-64 z-25 drop-shadow-xl select-none" />
+            class="pointer-events-none absolute -bottom-5 -left-5 w-36 sm:w-44 z-30 drop-shadow-xl select-none" />
           <img src="/assets/wedding/flowers/peony-corner-right.png" alt="" aria-hidden="true"
-            class="pointer-events-none absolute -bottom-6 -right-6 w-52 sm:w-64 z-25 drop-shadow-xl select-none" />
+            class="pointer-events-none absolute -bottom-5 -right-5 w-36 sm:w-44 z-30 drop-shadow-xl select-none" />
         </div>
 
         <!-- Right (5 cols): Moodboard Phone 2 "SAVE THE DATE" Bespoke Card -->
@@ -1730,11 +1711,9 @@
         <div class="absolute inset-0 bg-gradient-to-b from-[#F7EEE8]/30 via-[#F7EEE8]/70 to-[#F7EEE8]/90"></div>
       </div>
 
-      <!-- Sage-Green Draped Velvet Curtains at Top & Corners -->
-      <!-- <img src="/assets/wedding/drapery/sage-curtain-top.png" alt="" aria-hidden="true"
-        class="pointer-events-none absolute top-0 left-0 right-0 w-full h-20 sm:h-28 object-cover object-top z-10 drop-shadow-md select-none" /> -->
-      <!-- <img src="/assets/wedding/drapery/sage-curtain-corners.png" alt="" aria-hidden="true"
-        class="pointer-events-none absolute top-0 left-0 right-0 w-full h-64 sm:h-80 object-fill object-top z-10 opacity-95 select-none" /> -->
+      <!-- Sage-Green Draped Velvet Curtains (Top Valance) -->
+      <img src="/assets/wedding/drapery/sage-curtain-top.png" alt="" aria-hidden="true"
+        class="pointer-events-none absolute top-0 left-0 right-0 w-full h-20 sm:h-28 object-cover object-top z-10 drop-shadow-md select-none" />
 
       <!-- Floating Petals in Closing Scene -->
       <div class="pointer-events-none absolute inset-0 z-15 overflow-hidden" aria-hidden="true">
